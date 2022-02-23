@@ -1,0 +1,18 @@
+{
+  "name": "equinox-theme",
+  "version": "0.0.1",
+  "description": "Equinox theme with shared components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeromevvb",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/css": "^11.7.1",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23",
+    "twin.macro": "^2.8.2"
+  }
+}
