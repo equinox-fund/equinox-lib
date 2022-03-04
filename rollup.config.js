@@ -1,11 +1,13 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import typescript from '@rollup/plugin-typescript'
+// import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 
 const packageJson = require('./package.json')
+
+const extensions = [...DEFAULT_EXTENSIONS, '.tsx', '.ts']
 
 export default [
   {
@@ -22,22 +24,21 @@ export default [
         sourcemap: true
       }
     ],
-    external: [/@babel\/runtime/],
+    external: [/@babel\/runtime/, 'react'],
     plugins: [
-      resolve(),
-      commonjs({ exclude: 'node_modules' }),
-      typescript({ tsconfig: './tsconfig.json' }),
+      resolve({ extensions }),
+      commonjs(),
+      // typescript({ tsconfig: './tsconfig.json' }),
       babel({
-        babelHelpers: 'runtime',
-        extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts'],
+        babelHelpers: 'bundled',
+        include: ['src/**/*'],
+        extensions,
         presets: [
+          '@babel/preset-typescript',
           '@babel/preset-env',
-          [
-            '@babel/preset-react',
-            { runtime: 'automatic', importSource: '@emotion/react' }
-          ]
+          '@babel/preset-react'
         ],
-        plugins: ['@babel/plugin-transform-runtime', '@emotion/babel-plugin']
+        plugins: ['@emotion/babel-plugin']
       })
     ]
   },
