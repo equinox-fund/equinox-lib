@@ -29,6 +29,6 @@
     "typescript": "^4.6.2"
   },
   "scripts": {
-    "rollup":"rollup -c"
+    "rollup": "rollup -c"
   }
 }
