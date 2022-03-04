@@ -25,18 +25,18 @@ export default [
     plugins: [
       resolve(),
       commonjs({ exclude: 'node_modules' }),
-      typescript({ tsconfig: './tsconfig.json' }),
-      babel({
-        babelHelpers: 'bundled',
-        extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts'],
-        presets: [
-          [
-            '@babel/preset-react',
-            { runtime: 'automatic', importSource: '@emotion/react' }
-          ]
-        ],
-        plugins: ['@emotion/babel-plugin']
-      })
+      typescript({ tsconfig: './tsconfig.json' })
+      // babel({
+      //   babelHelpers: 'bundled',
+      //   extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts'],
+      //   presets: [
+      //     [
+      //       '@babel/preset-react',
+      //       { runtime: 'automatic', importSource: '@emotion/react' }
+      //     ]
+      //   ],
+      //   plugins: ['@emotion/babel-plugin']
+      // })
     ]
   },
   {
