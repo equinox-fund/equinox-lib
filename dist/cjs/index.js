@@ -5065,7 +5065,7 @@ var serializeStyles = function serializeStyles(args, registered, mergedProps) {
   };
 };
 
-var isBrowser = typeof document !== 'undefined';
+var isBrowser$1 = typeof document !== 'undefined';
 var hasOwnProperty = {}.hasOwnProperty;
 var EmotionCacheContext = /* #__PURE__ */react$1.exports.createContext( // we're doing this to avoid preconstruct's dead code elimination in this one case
 // because this module is primarily intended for the browser and node
@@ -5092,7 +5092,7 @@ var withEmotionCache = function withEmotionCache(func) {
   });
 };
 
-if (!isBrowser) {
+if (!isBrowser$1) {
   withEmotionCache = function withEmotionCache(func) {
     return function (props) {
       var cache = react$1.exports.useContext(EmotionCacheContext);
@@ -5165,17 +5165,17 @@ var getLabelFromStackTrace = function getLabelFromStackTrace(stackTrace) {
   return undefined;
 };
 
-var isBrowser$1 = typeof document !== 'undefined';
-var useInsertionEffect = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : function useInsertionEffect(create) {
+var isBrowser$1$1 = typeof document !== 'undefined';
+var useInsertionEffect$1 = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : function useInsertionEffect(create) {
   create();
 };
 
 function useInsertionEffectMaybe(create) {
-  if (!isBrowser$1) {
+  if (!isBrowser$1$1) {
     return create();
   }
 
-  useInsertionEffect(create);
+  useInsertionEffect$1(create);
 }
 
 var typePropName = '__EMOTION_TYPE_PLEASE_DO_NOT_USE__';
@@ -5206,7 +5206,7 @@ var createEmotionProps = function createEmotionProps(type, props) {
   return newProps;
 };
 
-var Insertion = function Insertion(_ref) {
+var Insertion$1 = function Insertion(_ref) {
   var cache = _ref.cache,
       serialized = _ref.serialized,
       isStringTag = _ref.isStringTag;
@@ -5215,7 +5215,7 @@ var Insertion = function Insertion(_ref) {
     return insertStyles(cache, serialized, isStringTag);
   });
 
-  if (!isBrowser && rules !== undefined) {
+  if (!isBrowser$1 && rules !== undefined) {
     var _ref2;
 
     var serializedNames = serialized.name;
@@ -5274,7 +5274,7 @@ var Emotion = /* #__PURE__ */withEmotionCache(function (props, cache, ref) {
 
   newProps.ref = ref;
   newProps.className = className;
-  return /*#__PURE__*/react$1.exports.createElement(react$1.exports.Fragment, null, /*#__PURE__*/react$1.exports.createElement(Insertion, {
+  return /*#__PURE__*/react$1.exports.createElement(react$1.exports.Fragment, null, /*#__PURE__*/react$1.exports.createElement(Insertion$1, {
     cache: cache,
     serialized: serialized,
     isStringTag: typeof WrappedComponent === 'string'
@@ -6555,9 +6555,8 @@ function jsx(type, props, key) {
   return jsxRuntime.exports.jsx(Emotion, createEmotionProps(type, props), key);
 }
 
-const Button = ({
-  label
-}) => {
+var Button = function (_a) {
+  var label = _a.label;
   return jsx("div", {
     children: jsx("button", {
       children: label
@@ -6589,20 +6588,365 @@ function __rest(s, e) {
   }
   return t;
 }
+function __makeTemplateObject(cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
 
-function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+  return cooked;
+}
 
-var _ref = process.env.NODE_ENV === "production" ? {
-  name: "hwfcu5",
-  styles: "color:red"
-} : {
-  name: "szoot9-styles",
-  styles: "color:red;label:styles;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDMkIiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vcmVhY3QnO1xuY29uc3Qgc3R5bGVzID0gKHt9KSA9PiBjc3MgYFxuICBjb2xvcjogcmVkO1xuYDtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPXN0eWxlcy5qcy5tYXAiXX0= */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+var pkg = {
+  name: "@emotion/react",
+  version: "11.8.1",
+  main: "dist/emotion-react.cjs.js",
+  module: "dist/emotion-react.esm.js",
+  browser: {
+    "./dist/emotion-react.cjs.js": "./dist/emotion-react.browser.cjs.js",
+    "./dist/emotion-react.esm.js": "./dist/emotion-react.browser.esm.js"
+  },
+  types: "types/index.d.ts",
+  files: ["src", "dist", "jsx-runtime", "jsx-dev-runtime", "_isolated-hnrs", "types/*.d.ts", "macro.js", "macro.d.ts", "macro.js.flow"],
+  sideEffects: false,
+  author: "Emotion Contributors",
+  license: "MIT",
+  scripts: {
+    "test:typescript": "dtslint types"
+  },
+  dependencies: {
+    "@babel/runtime": "^7.13.10",
+    "@emotion/babel-plugin": "^11.7.1",
+    "@emotion/cache": "^11.7.1",
+    "@emotion/serialize": "^1.0.2",
+    "@emotion/sheet": "^1.1.0",
+    "@emotion/utils": "^1.1.0",
+    "@emotion/weak-memoize": "^0.2.5",
+    "hoist-non-react-statics": "^3.3.1"
+  },
+  peerDependencies: {
+    "@babel/core": "^7.0.0",
+    react: ">=16.8.0"
+  },
+  peerDependenciesMeta: {
+    "@babel/core": {
+      optional: true
+    },
+    "@types/react": {
+      optional: true
+    }
+  },
+  devDependencies: {
+    "@babel/core": "^7.13.10",
+    "@emotion/css": "11.7.1",
+    "@emotion/css-prettifier": "1.0.1",
+    "@emotion/server": "11.4.0",
+    "@emotion/styled": "11.8.1",
+    "@types/react": "^16.9.11",
+    dtslint: "^0.3.0",
+    "html-tag-names": "^1.1.2",
+    react: "16.14.0",
+    "svg-tag-names": "^1.1.1"
+  },
+  repository: "https://github.com/emotion-js/emotion/tree/main/packages/react",
+  publishConfig: {
+    access: "public"
+  },
+  "umd:main": "dist/emotion-react.umd.min.js",
+  preconstruct: {
+    entrypoints: ["./index.js", "./jsx-runtime.js", "./jsx-dev-runtime.js", "./_isolated-hnrs.js"],
+    umdName: "emotionReact"
+  }
 };
 
-const styles = ({}) => _ref;
+var useInsertionEffect = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : react$1.exports.useLayoutEffect;
+var warnedAboutCssPropForGlobal = false; // maintain place over rerenders.
+// initial render from browser, insertBefore context.sheet.tags[0] or if a style hasn't been inserted there yet, appendChild
+// initial client-side render from SSR, use place of hydrating tag
+
+var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
+  if (process.env.NODE_ENV !== 'production' && !warnedAboutCssPropForGlobal && ( // check for className as well since the user is
+  // probably using the custom createElement which
+  // means it will be turned into a className prop
+  // $FlowFixMe I don't really want to add it to the type since it shouldn't be used
+  props.className || props.css)) {
+    console.error("It looks like you're using the css prop on Global, did you mean to use the styles prop instead?");
+    warnedAboutCssPropForGlobal = true;
+  }
+
+  var styles = props.styles;
+  var serialized = serializeStyles([styles], undefined, react$1.exports.useContext(ThemeContext));
+
+  if (!isBrowser$1) {
+    var _ref;
+
+    var serializedNames = serialized.name;
+    var serializedStyles = serialized.styles;
+    var next = serialized.next;
+
+    while (next !== undefined) {
+      serializedNames += ' ' + next.name;
+      serializedStyles += next.styles;
+      next = next.next;
+    }
+
+    var shouldCache = cache.compat === true;
+    var rules = cache.insert("", {
+      name: serializedNames,
+      styles: serializedStyles
+    }, cache.sheet, shouldCache);
+
+    if (shouldCache) {
+      return null;
+    }
+
+    return /*#__PURE__*/react$1.exports.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+      __html: rules
+    }, _ref.nonce = cache.sheet.nonce, _ref));
+  } // yes, i know these hooks are used conditionally
+  // but it is based on a constant that will never change at runtime
+  // it's effectively like having two implementations and switching them out
+  // so it's not actually breaking anything
+
+
+  var sheetRef = react$1.exports.useRef();
+  useInsertionEffect(function () {
+    var key = cache.key + "-global";
+    var sheet = new StyleSheet({
+      key: key,
+      nonce: cache.sheet.nonce,
+      container: cache.sheet.container,
+      speedy: cache.sheet.isSpeedy
+    });
+    var rehydrating = false; // $FlowFixMe
+
+    var node = document.querySelector("style[data-emotion=\"" + key + " " + serialized.name + "\"]");
+
+    if (cache.sheet.tags.length) {
+      sheet.before = cache.sheet.tags[0];
+    }
+
+    if (node !== null) {
+      rehydrating = true; // clear the hash so this node won't be recognizable as rehydratable by other <Global/>s
+
+      node.setAttribute('data-emotion', key);
+      sheet.hydrate([node]);
+    }
+
+    sheetRef.current = [sheet, rehydrating];
+    return function () {
+      sheet.flush();
+    };
+  }, [cache]);
+  useInsertionEffect(function () {
+    var sheetRefCurrent = sheetRef.current;
+    var sheet = sheetRefCurrent[0],
+        rehydrating = sheetRefCurrent[1];
+
+    if (rehydrating) {
+      sheetRefCurrent[1] = false;
+      return;
+    }
+
+    if (serialized.next !== undefined) {
+      // insert keyframes
+      insertStyles(cache, serialized.next, true);
+    }
+
+    if (sheet.tags.length) {
+      // if this doesn't exist then it will be null so the style element will be appended
+      var element = sheet.tags[sheet.tags.length - 1].nextElementSibling;
+      sheet.before = element;
+      sheet.flush();
+    }
+
+    cache.insert("", serialized, sheet, false);
+  }, [cache, serialized.name]);
+  return null;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  Global.displayName = 'EmotionGlobal';
+}
+
+function css() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return serializeStyles(args);
+}
+
+var classnames$2 = function classnames(args) {
+  var len = args.length;
+  var i = 0;
+  var cls = '';
+
+  for (; i < len; i++) {
+    var arg = args[i];
+    if (arg == null) continue;
+    var toAdd = void 0;
+
+    switch (typeof arg) {
+      case 'boolean':
+        break;
+
+      case 'object':
+        {
+          if (Array.isArray(arg)) {
+            toAdd = classnames(arg);
+          } else {
+            if (process.env.NODE_ENV !== 'production' && arg.styles !== undefined && arg.name !== undefined) {
+              console.error('You have passed styles created with `css` from `@emotion/react` package to the `cx`.\n' + '`cx` is meant to compose class names (strings) so you should convert those styles to a class name by passing them to the `css` received from <ClassNames/> component.');
+            }
+
+            toAdd = '';
+
+            for (var k in arg) {
+              if (arg[k] && k) {
+                toAdd && (toAdd += ' ');
+                toAdd += k;
+              }
+            }
+          }
+
+          break;
+        }
+
+      default:
+        {
+          toAdd = arg;
+        }
+    }
+
+    if (toAdd) {
+      cls && (cls += ' ');
+      cls += toAdd;
+    }
+  }
+
+  return cls;
+};
+
+function merge(registered, css, className) {
+  var registeredStyles = [];
+  var rawClassName = getRegisteredStyles(registered, registeredStyles, className);
+
+  if (registeredStyles.length < 2) {
+    return className;
+  }
+
+  return rawClassName + css(registeredStyles);
+}
+
+var Insertion = function Insertion(_ref) {
+  var cache = _ref.cache,
+      serializedArr = _ref.serializedArr;
+  var rules = useInsertionEffectMaybe(function () {
+    var rules = '';
+
+    for (var i = 0; i < serializedArr.length; i++) {
+      var res = insertStyles(cache, serializedArr[i], false);
+
+      if (!isBrowser$1 && res !== undefined) {
+        rules += res;
+      }
+    }
+
+    if (!isBrowser$1) {
+      return rules;
+    }
+  });
+
+  if (!isBrowser$1 && rules.length !== 0) {
+    var _ref2;
+
+    return /*#__PURE__*/react$1.exports.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function (serialized) {
+      return serialized.name;
+    }).join(' '), _ref2.dangerouslySetInnerHTML = {
+      __html: rules
+    }, _ref2.nonce = cache.sheet.nonce, _ref2));
+  }
+
+  return null;
+};
+
+var ClassNames = /* #__PURE__ */withEmotionCache(function (props, cache) {
+  var hasRendered = false;
+  var serializedArr = [];
+
+  var css = function css() {
+    if (hasRendered && process.env.NODE_ENV !== 'production') {
+      throw new Error('css can only be used during render');
+    }
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var serialized = serializeStyles(args, cache.registered);
+    serializedArr.push(serialized); // registration has to happen here as the result of this might get consumed by `cx`
+
+    registerStyles(cache, serialized, false);
+    return cache.key + "-" + serialized.name;
+  };
+
+  var cx = function cx() {
+    if (hasRendered && process.env.NODE_ENV !== 'production') {
+      throw new Error('cx can only be used during render');
+    }
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return merge(cache.registered, css, classnames$2(args));
+  };
+
+  var content = {
+    css: css,
+    cx: cx,
+    theme: react$1.exports.useContext(ThemeContext)
+  };
+  var ele = props.children(content);
+  hasRendered = true;
+  return /*#__PURE__*/react$1.exports.createElement(react$1.exports.Fragment, null, /*#__PURE__*/react$1.exports.createElement(Insertion, {
+    cache: cache,
+    serializedArr: serializedArr
+  }), ele);
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  ClassNames.displayName = 'EmotionClassNames';
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  var isBrowser = typeof document !== 'undefined'; // #1727 for some reason Jest evaluates modules twice if some consuming module gets mocked with jest.mock
+
+  var isJest = typeof jest !== 'undefined';
+
+  if (isBrowser && !isJest) {
+    // globalThis has wide browser support - https://caniuse.com/?search=globalThis, Node.js 12 and later
+    var globalContext = // $FlowIgnore
+    typeof globalThis !== 'undefined' ? globalThis // eslint-disable-line no-undef
+    : isBrowser ? window : global;
+    var globalKey = "__EMOTION_REACT_" + pkg.version.split('.')[0] + "__";
+
+    if (globalContext[globalKey]) {
+      console.warn('You are loading @emotion/react when it is already loaded. Running ' + 'multiple instances may cause problems. This can happen if multiple ' + 'versions are used, or if multiple builds of the same version are ' + 'used.');
+    }
+
+    globalContext[globalKey] = true;
+  }
+}
+
+var styles = function (_a) {
+  return /*#__PURE__*/css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")], ["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")])));
+};
+var templateObject_1;
 
 var classnames$1 = {exports: {}};
 
@@ -6663,36 +7007,28 @@ var classnames$1 = {exports: {}};
 
 var classnames = classnames$1.exports;
 
-const Typography = _a => {
-  var {
-    size = 'medium',
-    weight = 'normal',
-    children,
-    className,
-    caption = false,
-    ellipsis = false,
-    color = 'secondary',
-    uppercase = false,
-    hoverAsLink = false,
-    lineBreaks = false,
-    tag = 'p'
-  } = _a,
+var Typography = function (_a) {
+  var _b;
+
+  _a.size;
+      _a.weight;
+      var children = _a.children,
+      className = _a.className;
+      _a.caption;
+      _a.ellipsis;
+      _a.color;
+      _a.uppercase;
+      var _j = _a.hoverAsLink,
+      hoverAsLink = _j === void 0 ? false : _j;
+      _a.lineBreaks;
+      var _l = _a.tag,
+      tag = _l === void 0 ? 'p' : _l,
       restProps = __rest(_a, ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"]);
 
-  const Component = tag;
+  var Component = tag;
   return jsx(Component, {
-    css: styles({
-      size,
-      weight,
-      color,
-      caption,
-      uppercase,
-      ellipsis,
-      lineBreaks
-    }),
-    className: classnames(className, {
-      ['hover-as-link']: hoverAsLink
-    }),
+    css: styles(),
+    className: classnames(className, (_b = {}, _b['hover-as-link'] = hoverAsLink, _b)),
     ...restProps,
     children: children
   });
