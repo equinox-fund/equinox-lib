@@ -1,68 +1,34 @@
 {
   "name": "equinox-theme",
   "version": "0.0.1",
-  "description": "Equinox theme with shared components",
-  "main": "index.js",
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+  "description": "Equinox Theme with shared components",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apollo-xx/equinox-theme.git"
   },
   "author": "jeromevvb",
   "license": "ISC",
-  "dependencies": {},
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
+  "bugs": {
+    "url": "https://github.com/Apollo-xx/equinox-theme/issues"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "homepage": "https://github.com/Apollo-xx/equinox-theme#readme",
   "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@babel/plugin-proposal-decorators": "^7.17.2",
-    "@babel/preset-react": "^7.16.7",
-    "@craco/craco": "^6.4.3",
-    "@emotion/babel-plugin": "^11.7.2",
-    "@emotion/jest": "^11.8.0",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/builder-webpack5": "^6.4.19",
-    "@storybook/manager-webpack5": "^6.4.19",
-    "@storybook/node-logger": "^6.4.19",
-    "@storybook/preset-create-react-app": "^4.0.1",
-    "@storybook/react": "^6.4.19",
-    "@storybook/testing-library": "^0.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "webpack": "^5.69.1"
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@types/react": "^17.0.39",
+    "react": "^17.0.2",
+    "rollup": "^2.69.0",
+    "rollup-plugin-dts": "^4.2.0",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "rollup":"rollup -c"
   }
 }
