@@ -33,12 +33,7 @@ export default [
         babelHelpers: 'bundled',
         include: ['src/**/*'],
         extensions,
-        presets: [
-          '@babel/preset-typescript',
-          '@babel/preset-env',
-          '@babel/preset-react',
-          '@emotion/babel-preset-css-prop'
-        ],
+        presets: ['@babel/preset-env', '@babel/preset-react'],
         plugins: ['@emotion/babel-plugin']
       })
     ]
