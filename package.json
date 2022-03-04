@@ -1,5 +1,5 @@
 {
-  "name": "@equinox-fund/equinox-theme",
+  "name": "equinox-theme",
   "version": "0.0.1",
   "description": "Equinox Theme with shared components",
   "main": "dist/cjs/index.js",
@@ -34,8 +34,8 @@
     "rollup": "^2.69.0",
     "rollup-plugin-dts": "^4.2.0",
     "typescript": "^4.6.2"
-  }, 
-   "dependencies": {
+  },
+  "dependencies": {
     "classnames": "^2.3.1",
     "twin.macro": "^2.8.2"
   },
