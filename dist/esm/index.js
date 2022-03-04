@@ -6676,7 +6676,7 @@ const Typography = _a => {
       restProps = __rest(_a, ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"]);
 
   const Component = tag;
-  return jsx(Component, Object.assign({
+  return jsx(Component, {
     css: styles({
       size,
       weight,
@@ -6688,10 +6688,10 @@ const Typography = _a => {
     }),
     className: classnames(className, {
       ['hover-as-link']: hoverAsLink
-    })
-  }, restProps, {
+    }),
+    ...restProps,
     children: children
-  }));
+  });
 };
 
 export { Button, Typography };
