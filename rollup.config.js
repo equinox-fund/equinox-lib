@@ -34,7 +34,7 @@ export default [
         include: ['src/**/*'],
         extensions,
         presets: ['@babel/preset-env', '@babel/preset-react'],
-        plugins: ['@emotion/babel-plugin']
+        plugins: ['@emotion']
       })
     ]
   },
