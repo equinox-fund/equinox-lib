@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { babel } from '@rollup/plugin-babel'
+import { DEFAULT_EXTENSIONS } from '@babel/core'
 
 const packageJson = require('./package.json')
 
@@ -25,7 +26,10 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      babel({ babelHelpers: 'bundled' })
+      babel({
+        babelHelpers: 'bundled',
+        extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts']
+      })
     ]
   },
   {

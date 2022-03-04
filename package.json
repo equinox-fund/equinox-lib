@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Apollo-xx/equinox-theme#readme",
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/react": "^11.8.1",
     "@rollup/plugin-babel": "^5.3.1",
