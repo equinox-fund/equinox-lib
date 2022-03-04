@@ -1,60 +1,5 @@
-import * as React$1 from 'react';
-import { forwardRef, useContext, createElement, createContext, Fragment, useRef, useLayoutEffect } from 'react';
-
-var Button = function Button(_a) {
-  var label = _a.label;
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, label));
-};
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-}
+import * as React from 'react';
+import { useContext, createElement, Fragment, createContext, forwardRef, useRef, useLayoutEffect } from 'react';
 
 /*
 
@@ -2118,8 +2063,51 @@ if (process.env.NODE_ENV !== 'production') {
   ThemeContext.displayName = 'EmotionThemeContext';
 }
 
+var getLastPart = function getLastPart(functionName) {
+  // The match may be something like 'Object.createEmotionProps' or
+  // 'Loader.prototype.render'
+  var parts = functionName.split('.');
+  return parts[parts.length - 1];
+};
+
+var getFunctionNameFromStackTraceLine = function getFunctionNameFromStackTraceLine(line) {
+  // V8
+  var match = /^\s+at\s+([A-Za-z0-9$.]+)\s/.exec(line);
+  if (match) return getLastPart(match[1]); // Safari / Firefox
+
+  match = /^([A-Za-z0-9$.]+)@/.exec(line);
+  if (match) return getLastPart(match[1]);
+  return undefined;
+};
+
+var internalReactFunctionNames = /* #__PURE__ */new Set(['renderWithHooks', 'processChild', 'finishClassComponent', 'renderToString']); // These identifiers come from error stacks, so they have to be valid JS
+// identifiers, thus we only need to replace what is a valid character for JS,
+// but not for CSS.
+
+var sanitizeIdentifier = function sanitizeIdentifier(identifier) {
+  return identifier.replace(/\$/g, '-');
+};
+
+var getLabelFromStackTrace = function getLabelFromStackTrace(stackTrace) {
+  if (!stackTrace) return undefined;
+  var lines = stackTrace.split('\n');
+
+  for (var i = 0; i < lines.length; i++) {
+    var functionName = getFunctionNameFromStackTraceLine(lines[i]); // The first line of V8 stack traces is just "Error"
+
+    if (!functionName) continue; // If we reach one of these, we have gone too far and should quit
+
+    if (internalReactFunctionNames.has(functionName)) break; // The component name is the first function in the stack that starts with an
+    // uppercase letter
+
+    if (/^[A-Z]/.test(functionName)) return sanitizeIdentifier(functionName);
+  }
+
+  return undefined;
+};
+
 var isBrowser$1$1 = typeof document !== 'undefined';
-var useInsertionEffect$1 = React$1['useInsertion' + 'Effect'] ? React$1['useInsertion' + 'Effect'] : function useInsertionEffect(create) {
+var useInsertionEffect$1 = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : function useInsertionEffect(create) {
   create();
 };
 function useInsertionEffectMaybe(create) {
@@ -2132,6 +2120,30 @@ function useInsertionEffectMaybe(create) {
 
 var typePropName = '__EMOTION_TYPE_PLEASE_DO_NOT_USE__';
 var labelPropName = '__EMOTION_LABEL_PLEASE_DO_NOT_USE__';
+var createEmotionProps = function createEmotionProps(type, props) {
+  if (process.env.NODE_ENV !== 'production' && typeof props.css === 'string' && // check if there is a css declaration
+  props.css.indexOf(':') !== -1) {
+    throw new Error("Strings are not allowed as css prop values, please wrap it in a css template literal from '@emotion/react' like this: css`" + props.css + "`");
+  }
+
+  var newProps = {};
+
+  for (var key in props) {
+    if (hasOwnProperty.call(props, key)) {
+      newProps[key] = props[key];
+    }
+  }
+
+  newProps[typePropName] = type; // For performance, only call getLabelFromStackTrace in development and when
+  // the label hasn't already been computed
+
+  if (process.env.NODE_ENV !== 'production' && !!props.css && (typeof props.css !== 'object' || typeof props.css.name !== 'string' || props.css.name.indexOf('-') === -1)) {
+    var label = getLabelFromStackTrace(new Error().stack);
+    if (label) newProps[labelPropName] = label;
+  }
+
+  return newProps;
+};
 
 var Insertion$1 = function Insertion(_ref) {
   var cache = _ref.cache,
@@ -2289,7 +2301,28 @@ var pkg = {
 	}
 };
 
-var useInsertionEffect = React$1['useInsertion' + 'Effect'] ? React$1['useInsertion' + 'Effect'] : useLayoutEffect;
+var jsx = function jsx(type, props) {
+  var args = arguments;
+
+  if (props == null || !hasOwnProperty.call(props, 'css')) {
+    // $FlowFixMe
+    return createElement.apply(undefined, args);
+  }
+
+  var argsLength = args.length;
+  var createElementArgArray = new Array(argsLength);
+  createElementArgArray[0] = Emotion;
+  createElementArgArray[1] = createEmotionProps(type, props);
+
+  for (var i = 2; i < argsLength; i++) {
+    createElementArgArray[i] = args[i];
+  } // $FlowFixMe
+
+
+  return createElement.apply(null, createElementArgArray);
+};
+
+var useInsertionEffect = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : useLayoutEffect;
 var warnedAboutCssPropForGlobal = false; // maintain place over rerenders.
 // initial render from browser, insertBefore context.sheet.tags[0] or if a style hasn't been inserted there yet, appendChild
 // initial client-side render from SSR, use place of hydrating tag
@@ -2397,14 +2430,6 @@ var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
 
 if (process.env.NODE_ENV !== 'production') {
   Global.displayName = 'EmotionGlobal';
-}
-
-function css() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  return serializeStyles(args);
 }
 
 var classnames$2 = function classnames(args) {
@@ -2570,10 +2595,92 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-var styles = function styles(_a) {
-  return /*#__PURE__*/css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")], ["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")])));
+var Button = function Button(_ref) {
+  var label = _ref.label;
+  return jsx("div", null, jsx("button", null, label));
 };
-var templateObject_1;
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure undefined");
+}
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+var _ref = process.env.NODE_ENV === "production" ? {
+  name: "hwfcu5",
+  styles: "color:red"
+} : {
+  name: "szoot9-styles",
+  styles: "color:red;label:styles;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDMkIiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vcmVhY3QnO1xuY29uc3Qgc3R5bGVzID0gKHt9KSA9PiBjc3MgYFxuICBjb2xvcjogcmVkO1xuYDtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPXN0eWxlcy5qcy5tYXAiXX0= */",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+};
+
+var styles = function styles(_ref2) {
+  _objectDestructuringEmpty(_ref2);
+
+  return _ref;
+};
 
 var classnames$1 = {exports: {}};
 
@@ -2636,27 +2743,40 @@ var classnames$1 = {exports: {}};
 var classnames = classnames$1.exports;
 
 var Typography = function Typography(_a) {
-  var _b;
-
-  _a.size;
-      _a.weight;
-      var children = _a.children,
-      className = _a.className;
-      _a.caption;
-      _a.ellipsis;
-      _a.color;
-      _a.uppercase;
-      var _j = _a.hoverAsLink,
-      hoverAsLink = _j === void 0 ? false : _j;
-      _a.lineBreaks;
-      var _l = _a.tag,
-      tag = _l === void 0 ? 'p' : _l,
+  var _a$size = _a.size,
+      size = _a$size === void 0 ? 'medium' : _a$size,
+      _a$weight = _a.weight,
+      weight = _a$weight === void 0 ? 'normal' : _a$weight,
+      children = _a.children,
+      className = _a.className,
+      _a$caption = _a.caption,
+      caption = _a$caption === void 0 ? false : _a$caption,
+      _a$ellipsis = _a.ellipsis,
+      ellipsis = _a$ellipsis === void 0 ? false : _a$ellipsis,
+      _a$color = _a.color,
+      color = _a$color === void 0 ? 'secondary' : _a$color,
+      _a$uppercase = _a.uppercase,
+      uppercase = _a$uppercase === void 0 ? false : _a$uppercase,
+      _a$hoverAsLink = _a.hoverAsLink,
+      hoverAsLink = _a$hoverAsLink === void 0 ? false : _a$hoverAsLink,
+      _a$lineBreaks = _a.lineBreaks,
+      lineBreaks = _a$lineBreaks === void 0 ? false : _a$lineBreaks,
+      _a$tag = _a.tag,
+      tag = _a$tag === void 0 ? 'p' : _a$tag,
       restProps = __rest(_a, ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"]);
 
   var Component = tag;
-  return /*#__PURE__*/React.createElement(Component, _extends({
-    css: styles(),
-    className: classnames(className, (_b = {}, _b['hover-as-link'] = hoverAsLink, _b))
+  return jsx(Component, _extends({
+    css: styles({
+      size: size,
+      weight: weight,
+      color: color,
+      caption: caption,
+      uppercase: uppercase,
+      ellipsis: ellipsis,
+      lineBreaks: lineBreaks
+    }),
+    className: classnames(className, _defineProperty({}, 'hover-as-link', hoverAsLink))
   }, restProps), children);
 };
 
