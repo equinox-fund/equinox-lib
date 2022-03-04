@@ -22,21 +22,23 @@ export default [
         sourcemap: true
       }
     ],
+    external: [/@babel\/runtime/],
     plugins: [
       resolve(),
       commonjs({ exclude: 'node_modules' }),
-      typescript({ tsconfig: './tsconfig.json' })
-      // babel({
-      //   babelHelpers: 'bundled',
-      //   extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts'],
-      //   presets: [
-      //     [
-      //       '@babel/preset-react',
-      //       { runtime: 'automatic', importSource: '@emotion/react' }
-      //     ]
-      //   ],
-      //   plugins: ['@emotion/babel-plugin']
-      // })
+      typescript({ tsconfig: './tsconfig.json' }),
+      babel({
+        babelHelpers: 'runtime',
+        extensions: [...DEFAULT_EXTENSIONS, '.tsx', '.ts'],
+        presets: [
+          '@babel/preset-env',
+          [
+            '@babel/preset-react',
+            { runtime: 'automatic', importSource: '@emotion/react' }
+          ]
+        ],
+        plugins: ['@babel/plugin-transform-runtime', '@emotion/babel-plugin']
+      })
     ]
   },
   {
