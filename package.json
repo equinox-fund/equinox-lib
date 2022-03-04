@@ -1,5 +1,5 @@
 {
-  "name": "equinox-theme",
+  "name": "@equinox-fund/equinox-theme",
   "version": "0.0.1",
   "description": "Equinox Theme with shared components",
   "main": "dist/cjs/index.js",
