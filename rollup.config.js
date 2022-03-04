@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
+import { babel } from '@rollup/plugin-babel'
 
 const packageJson = require('./package.json')
 
@@ -23,7 +24,8 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' })
+      typescript({ tsconfig: './tsconfig.json' }),
+      babel({ babelHelpers: 'bundled' })
     ]
   },
   {
