@@ -1,6 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-// import typescript from '@rollup/plugin-typescript'
+import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
@@ -24,11 +24,11 @@ export default [
         sourcemap: true
       }
     ],
-    external: [/@babel\/runtime/, 'react'],
+    external: ['react'],
     plugins: [
       resolve({ extensions }),
       commonjs(),
-      // typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: './tsconfig.json' }),
       babel({
         babelHelpers: 'bundled',
         include: ['src/**/*'],

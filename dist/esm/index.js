@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useContext, createElement, Fragment, createContext, forwardRef, useRef, useLayoutEffect } from 'react';
-import '@babel/runtime/helpers/esm/extends';
-import '@babel/runtime/helpers/extends';
 
 /*
 
@@ -2434,6 +2432,14 @@ if (process.env.NODE_ENV !== 'production') {
   Global.displayName = 'EmotionGlobal';
 }
 
+function css() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return serializeStyles(args);
+}
+
 var classnames$2 = function classnames(args) {
   var len = args.length;
   var i = 0;
@@ -2597,25 +2603,10 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-var Button = function Button(_ref) {
-  var label = _ref.label;
+var Button = function Button(_a) {
+  var label = _a.label;
   return jsx("div", null, jsx("button", null, label));
 };
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -2635,63 +2626,47 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function _objectDestructuringEmpty(obj) {
-  if (obj == null) throw new TypeError("Cannot destructure undefined");
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
 }
 
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
+var styles = function styles(_a) {
+  return (
+    /*#__PURE__*/
 
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
-
-var _ref = process.env.NODE_ENV === "production" ? {
-  name: "hwfcu5",
-  styles: "color:red"
-} : {
-  name: "szoot9-styles",
-  styles: "color:red;label:styles;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFMEIiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vcmVhY3QnXG5cbmNvbnN0IHN0eWxlcyA9ICh7fSkgPT4gY3NzYFxuICBjb2xvcjogcmVkO1xuYFxuXG5leHBvcnQgZGVmYXVsdCBzdHlsZXNcbiJdfQ== */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+    /*#__PURE__*/
+    css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */") + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")], ["\n  color: red;\n" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */") + (process.env.NODE_ENV === "production" ? "" : ";label:styles;") + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFb0MiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgX19tYWtlVGVtcGxhdGVPYmplY3QgfSBmcm9tIFwidHNsaWJcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL3JlYWN0JztcbnZhciBzdHlsZXMgPSBmdW5jdGlvbiAoX2EpIHsgcmV0dXJuIGNzcyh0ZW1wbGF0ZU9iamVjdF8xIHx8ICh0ZW1wbGF0ZU9iamVjdF8xID0gX19tYWtlVGVtcGxhdGVPYmplY3QoW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSwgW1wiXFxuICBjb2xvcjogcmVkO1xcblwiXSkpKTsgfTtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbnZhciB0ZW1wbGF0ZU9iamVjdF8xO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */")])))
+  );
 };
-
-var styles = function styles(_ref2) {
-  _objectDestructuringEmpty(_ref2);
-
-  return _ref;
-};
+var templateObject_1;
 
 var classnames$1 = {exports: {}};
 
@@ -2753,43 +2728,28 @@ var classnames$1 = {exports: {}};
 
 var classnames = classnames$1.exports;
 
-var _excluded = ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"];
+var Typography = function Typography(_a) {
+  var _b;
 
-var Typography = function Typography(_ref) {
-  var _ref$size = _ref.size,
-      size = _ref$size === void 0 ? 'medium' : _ref$size,
-      _ref$weight = _ref.weight,
-      weight = _ref$weight === void 0 ? 'normal' : _ref$weight,
-      children = _ref.children,
-      className = _ref.className,
-      _ref$caption = _ref.caption,
-      caption = _ref$caption === void 0 ? false : _ref$caption,
-      _ref$ellipsis = _ref.ellipsis,
-      ellipsis = _ref$ellipsis === void 0 ? false : _ref$ellipsis,
-      _ref$color = _ref.color,
-      color = _ref$color === void 0 ? 'secondary' : _ref$color,
-      _ref$uppercase = _ref.uppercase,
-      uppercase = _ref$uppercase === void 0 ? false : _ref$uppercase,
-      _ref$hoverAsLink = _ref.hoverAsLink,
-      hoverAsLink = _ref$hoverAsLink === void 0 ? false : _ref$hoverAsLink,
-      _ref$lineBreaks = _ref.lineBreaks,
-      lineBreaks = _ref$lineBreaks === void 0 ? false : _ref$lineBreaks,
-      _ref$tag = _ref.tag,
-      tag = _ref$tag === void 0 ? 'p' : _ref$tag,
-      restProps = _objectWithoutProperties(_ref, _excluded);
+  _a.size;
+      _a.weight;
+      var children = _a.children,
+      className = _a.className;
+      _a.caption;
+      _a.ellipsis;
+      _a.color;
+      _a.uppercase;
+      var _j = _a.hoverAsLink,
+      hoverAsLink = _j === void 0 ? false : _j;
+      _a.lineBreaks;
+      var _l = _a.tag,
+      tag = _l === void 0 ? 'p' : _l,
+      restProps = __rest(_a, ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"]);
 
   var Component = tag;
   return jsx(Component, _extends({
-    css: styles({
-      size: size,
-      weight: weight,
-      color: color,
-      caption: caption,
-      uppercase: uppercase,
-      ellipsis: ellipsis,
-      lineBreaks: lineBreaks
-    }),
-    className: classnames(className, _defineProperty({}, 'hover-as-link', hoverAsLink))
+    css: styles(),
+    className: classnames(className, (_b = {}, _b['hover-as-link'] = hoverAsLink, _b))
   }, restProps), children);
 };
 
