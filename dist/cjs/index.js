@@ -2485,7 +2485,7 @@ if (process.env.NODE_ENV !== 'production') {
   Global.displayName = 'EmotionGlobal';
 }
 
-var classnames$2 = function classnames(args) {
+var classnames = function classnames(args) {
   var len = args.length;
   var i = 0;
   var cls = '';
@@ -2608,7 +2608,7 @@ var ClassNames = /* #__PURE__ */withEmotionCache(function (props, cache) {
       args[_key2] = arguments[_key2];
     }
 
-    return merge(cache.registered, css, classnames$2(args));
+    return merge(cache.registered, css, classnames(args));
   };
 
   var content = {
@@ -2652,21 +2652,6 @@ var Button = function Button(_ref) {
   var label = _ref.label;
   return jsx("div", null, jsx("button", null, label));
 };
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -2735,84 +2720,23 @@ var styles = function styles(_ref2) {
   return _ref;
 };
 
-var classnames$1 = {exports: {}};
-
-/*!
-  Copyright (c) 2018 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-
-(function (module) {
-/* global define */
-
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames() {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				if (arg.length) {
-					var inner = classNames.apply(null, arg);
-					if (inner) {
-						classes.push(inner);
-					}
-				}
-			} else if (argType === 'object') {
-				if (arg.toString === Object.prototype.toString) {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				} else {
-					classes.push(arg.toString());
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else {
-		window.classNames = classNames;
-	}
-}());
-}(classnames$1));
-
-var classnames = classnames$1.exports;
-
 var Typography = function Typography(_a) {
   var _a$size = _a.size,
       size = _a$size === void 0 ? 'medium' : _a$size,
       _a$weight = _a.weight,
       weight = _a$weight === void 0 ? 'normal' : _a$weight,
-      children = _a.children,
-      className = _a.className,
-      _a$caption = _a.caption,
+      children = _a.children;
+      _a.className;
+      var _a$caption = _a.caption,
       caption = _a$caption === void 0 ? false : _a$caption,
       _a$ellipsis = _a.ellipsis,
       ellipsis = _a$ellipsis === void 0 ? false : _a$ellipsis,
       _a$color = _a.color,
       color = _a$color === void 0 ? 'secondary' : _a$color,
       _a$uppercase = _a.uppercase,
-      uppercase = _a$uppercase === void 0 ? false : _a$uppercase,
-      _a$hoverAsLink = _a.hoverAsLink,
-      hoverAsLink = _a$hoverAsLink === void 0 ? false : _a$hoverAsLink,
-      _a$lineBreaks = _a.lineBreaks,
+      uppercase = _a$uppercase === void 0 ? false : _a$uppercase;
+      _a.hoverAsLink;
+      var _a$lineBreaks = _a.lineBreaks,
       lineBreaks = _a$lineBreaks === void 0 ? false : _a$lineBreaks,
       _a$tag = _a.tag,
       tag = _a$tag === void 0 ? 'p' : _a$tag,
@@ -2829,7 +2753,10 @@ var Typography = function Typography(_a) {
       ellipsis: ellipsis,
       lineBreaks: lineBreaks
     }),
-    className: classnames('text-3xl font-bold underline', className, _defineProperty({}, 'hover-as-link', hoverAsLink))
+    className: "text-3xl font-bold underline" // className={classnames('text-3xl font-bold underline', className, {
+    //   ['hover-as-link']: hoverAsLink
+    // })}
+
   }, restProps), children);
 };
 
