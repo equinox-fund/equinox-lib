@@ -2648,6 +2648,10 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure undefined");
+}
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -2675,32 +2679,57 @@ function __rest(s, e) {
     return t;
 }
 
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+var _ref = process.env.NODE_ENV === "production" ? {
+  name: "hwfcu5",
+  styles: "color:red"
+} : {
+  name: "szoot9-styles",
+  styles: "color:red;label:styles;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDMkIiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vcmVhY3QnO1xuY29uc3Qgc3R5bGVzID0gKHt9KSA9PiBjc3MgYFxuICBjb2xvcjogcmVkO1xuYDtcbmV4cG9ydCBkZWZhdWx0IHN0eWxlcztcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPXN0eWxlcy5qcy5tYXAiXX0= */",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+};
+
+var styles = function styles(_ref2) {
+  _objectDestructuringEmpty(_ref2);
+
+  return _ref;
+};
+
 var Typography = function Typography(_a) {
-  _a.size;
-      _a.weight;
-      var children = _a.children;
+  var _a$size = _a.size,
+      size = _a$size === void 0 ? 'medium' : _a$size,
+      _a$weight = _a.weight,
+      weight = _a$weight === void 0 ? 'normal' : _a$weight,
+      children = _a.children;
       _a.className;
-      _a.caption;
-      _a.ellipsis;
-      _a.color;
-      _a.uppercase;
+      var _a$caption = _a.caption,
+      caption = _a$caption === void 0 ? false : _a$caption,
+      _a$ellipsis = _a.ellipsis,
+      ellipsis = _a$ellipsis === void 0 ? false : _a$ellipsis,
+      _a$color = _a.color,
+      color = _a$color === void 0 ? 'secondary' : _a$color,
+      _a$uppercase = _a.uppercase,
+      uppercase = _a$uppercase === void 0 ? false : _a$uppercase;
       _a.hoverAsLink;
-      _a.lineBreaks;
-      var _a$tag = _a.tag,
+      var _a$lineBreaks = _a.lineBreaks,
+      lineBreaks = _a$lineBreaks === void 0 ? false : _a$lineBreaks,
+      _a$tag = _a.tag,
       tag = _a$tag === void 0 ? 'p' : _a$tag,
       restProps = __rest(_a, ["size", "weight", "children", "className", "caption", "ellipsis", "color", "uppercase", "hoverAsLink", "lineBreaks", "tag"]);
 
   var Component = tag;
-  return jsx(Component // css={styles({
-  //   size,
-  //   weight,
-  //   color,
-  //   caption,
-  //   uppercase,
-  //   ellipsis,
-  //   lineBreaks
-  // })}
-  , _extends({
+  return jsx(Component, _extends({
+    css: styles({
+      size: size,
+      weight: weight,
+      color: color,
+      caption: caption,
+      uppercase: uppercase,
+      ellipsis: ellipsis,
+      lineBreaks: lineBreaks
+    }),
     className: "text-3xl font-bold underline" // className={classnames('text-3xl font-bold underline', className, {
     //   ['hover-as-link']: hoverAsLink
     // })}

@@ -27,14 +27,14 @@ export default [
     ],
     external: ['react'],
     plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: './tsconfig.json' }),
       postcss({
         config: {
           file: './postcss.config.js'
         }
       }),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
       babel({
         babelHelpers: 'bundled',
         include: ['src/**/*'],

@@ -41,15 +41,15 @@ const Typography: React.FC<TypographyProps> = ({
 
   return (
     <Component
-      // css={styles({
-      //   size,
-      //   weight,
-      //   color,
-      //   caption,
-      //   uppercase,
-      //   ellipsis,
-      //   lineBreaks
-      // })}
+      css={styles({
+        size,
+        weight,
+        color,
+        caption,
+        uppercase,
+        ellipsis,
+        lineBreaks
+      })}
       className="text-3xl font-bold underline"
       // className={classnames('text-3xl font-bold underline', className, {
       //   ['hover-as-link']: hoverAsLink
