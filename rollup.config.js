@@ -5,6 +5,7 @@ import dts from 'rollup-plugin-dts'
 import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import postcss from 'rollup-plugin-postcss'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 const packageJson = require('./package.json')
 
@@ -27,6 +28,7 @@ export default [
     ],
     external: ['react'],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
@@ -44,7 +46,7 @@ export default [
           '@babel/preset-react',
           '@emotion/babel-preset-css-prop'
         ],
-        plugins: ['@emotion']
+        plugins: ['@emotion/babel-plugin', 'babel-plugin-macros']
       })
     ]
   },
