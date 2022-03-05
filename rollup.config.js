@@ -27,6 +27,11 @@ export default [
     ],
     external: ['react'],
     plugins: [
+      postcss({
+        config: {
+          file: './postcss.config.js'
+        }
+      }),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
@@ -40,9 +45,6 @@ export default [
           '@emotion/babel-preset-css-prop'
         ],
         plugins: ['@emotion']
-      }),
-      postcss({
-        plugins: [require('tailwindcss'), require('autoprefixer')]
       })
     ]
   },
