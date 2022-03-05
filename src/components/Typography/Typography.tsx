@@ -50,7 +50,7 @@ const Typography: React.FC<TypographyProps> = ({
         ellipsis,
         lineBreaks
       })}
-      className={classnames('text-3xl font-bold underline', className, {
+      className={classnames(className, {
         ['hover-as-link']: hoverAsLink
       })}
       {...restProps}
