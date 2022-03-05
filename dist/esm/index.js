@@ -1,3 +1,4 @@
+import 'index.css';
 import * as React from 'react';
 import { useContext, createElement, Fragment, createContext, forwardRef, useRef, useLayoutEffect } from 'react';
 
@@ -2776,7 +2777,7 @@ var Typography = function Typography(_a) {
       ellipsis: ellipsis,
       lineBreaks: lineBreaks
     }),
-    className: classnames(className, _defineProperty({}, 'hover-as-link', hoverAsLink))
+    className: classnames('text-3xl font-bold underline', className, _defineProperty({}, 'hover-as-link', hoverAsLink))
   }, restProps), children);
 };
 

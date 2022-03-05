@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
+import postcss from 'rollup-plugin-postcss'
 
 const packageJson = require('./package.json')
 
@@ -26,6 +27,14 @@ export default [
     ],
     external: ['react'],
     plugins: [
+      postcss({
+        config: {
+          path: './postcss.config.js'
+        },
+        extensions: ['.css'],
+        minimize: true,
+        extract: 'lib.css'
+      }),
       resolve({ extensions }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),

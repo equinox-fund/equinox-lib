@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+require('index.css');
 var React = require('react');
 
 function _interopNamespace(e) {
@@ -2799,7 +2800,7 @@ var Typography = function Typography(_a) {
       ellipsis: ellipsis,
       lineBreaks: lineBreaks
     }),
-    className: classnames(className, _defineProperty({}, 'hover-as-link', hoverAsLink))
+    className: classnames('text-3xl font-bold underline', className, _defineProperty({}, 'hover-as-link', hoverAsLink))
   }, restProps), children);
 };
 
