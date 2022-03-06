@@ -1,10 +1,11 @@
 import React from 'react';
+import { Color, Size, FontWeight } from '../../types/theme';
 export interface TypographyProps {
-    size?: 'small' | 'medium' | 'large';
-    weight?: 'normal' | 'medium' | 'semibold';
+    size?: Size;
+    weight?: FontWeight;
     className?: string;
     caption?: boolean;
-    color?: 'muted' | 'dark' | 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+    color?: Color;
     uppercase?: boolean;
     tag?: 'p' | 'span';
     ellipsis?: boolean;
