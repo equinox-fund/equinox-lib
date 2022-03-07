@@ -1,7 +1,7 @@
 {
-  "name": "equinox-theme",
+  "name": "@equinox",
   "version": "0.0.1",
-  "description": "Equinox Theme with shared components",
+  "description": "Equinox components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
