@@ -65,6 +65,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "react-icons": "^4.3.1",
+    "react-overlays": "^5.1.1",
     "twin.macro": "^2.8.2"
   },
   "scripts": {

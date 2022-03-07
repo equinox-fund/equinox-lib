@@ -1,7 +1,7 @@
 import styles from './styles'
 import classnames from 'classnames'
 import React from 'react'
-import { Color, Size, FontWeight } from '../../types/theme'
+import { Color, Size, FontWeight } from './Typography.types'
 
 export interface TypographyProps {
   size?: Size
