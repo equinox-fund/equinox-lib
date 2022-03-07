@@ -10,11 +10,14 @@ on:
 
 # List of jobs
 jobs:
-  test:
+  chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
     steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: npm
       - uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
