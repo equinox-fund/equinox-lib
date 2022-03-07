@@ -54,15 +54,6 @@ describe('Components/Common/Button', () => {
     expect(getByTestId(/spinner/i)).toBeInTheDocument()
   })
 
-  it('should render a tooltip', () => {
-    const { queryByTestId } = render(
-      <Button tooltip={'hello world'} loading={true}>
-        Join
-      </Button>
-    )
-    expect(queryByTestId('popper-container')).toBeInTheDocument()
-  })
-
   it('can be disabled', () => {
     const onClick = jest.fn()
     const { getByText } = render(

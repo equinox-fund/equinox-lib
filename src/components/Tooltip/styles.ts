@@ -7,27 +7,19 @@ const styles = ({ placement = 'bottom' }) => css`
   }
 
   .tooltip {
-    ${tw`rounded-sm`}
+    ${tw`rounded-lg`}
     ${tw`px-2 py-1`}
     ${tw`text-neutral-dark`}
     ${tw`bg-secondary`}
     ${tw`text-center`}
     max-width: 14rem;
 
+    /**
     ${placement.includes('bottom') && tw`mt-3`}
     ${placement.includes('top') && tw`mb-3`}
     ${placement.includes('right') && tw`ml-3`}
     ${placement.includes('left') && tw`mr-3`}
-  }
-
-  .menu {
-    border-radius: 2px;
-    ${tw`py-3 px-3`}
-    ${tw`min-w-full`} 
-
-    ${tw`mt-3`}
-    ${tw`text-neutral-dark`}
-    ${tw`bg-secondary`}
+    */
   }
 
   .arrow {
@@ -39,9 +31,7 @@ const styles = ({ placement = 'bottom' }) => css`
     ${placement.includes('top') && tw`bottom-2`}
     ${placement.includes('right') && tw`left-2`}
     ${placement.includes('left') && tw`right-2`}
-
-
-
+   
     &::before {
       ${tw`w-3 h-3`}
       content: "";
@@ -54,4 +44,7 @@ const styles = ({ placement = 'bottom' }) => css`
   }
 `
 
+/**
+ *
+ */
 export default styles

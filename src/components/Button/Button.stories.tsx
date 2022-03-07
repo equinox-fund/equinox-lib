@@ -12,13 +12,13 @@ const Template: Story<ButtonProps> = (args) => (
     <div className="mr-4">
       <Button {...args}>Connect wallet</Button>
     </div>
-    <div className="mr-4">
-      <Button {...args} icon={IoIosRocket}>
-        Connect wallet with icon
-      </Button>
-    </div>
   </div>
 )
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const WithIcon = Template.bind({})
+WithIcon.args = {
+  icon: IoIosRocket
+}
