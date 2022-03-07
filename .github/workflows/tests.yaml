@@ -1,4 +1,6 @@
-name: unit-tests
+# Workflow name
+name: 'Unit tests'
+
 on:
   push:
     branches: [main]
@@ -16,4 +18,5 @@ jobs:
           node-version: '16.x'
       - name: Install dependencies
         run: npm install
+      - name: Run tests
       - run: npm run test
