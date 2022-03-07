@@ -40,13 +40,7 @@ export default [
       babel({
         babelHelpers: 'bundled',
         include: ['src/**/*'],
-        extensions,
-        presets: [
-          '@babel/preset-env',
-          '@babel/preset-react',
-          '@emotion/babel-preset-css-prop'
-        ],
-        plugins: ['@emotion/babel-plugin', 'babel-plugin-macros']
+        extensions
       })
     ]
   },
