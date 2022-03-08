@@ -26,7 +26,7 @@ export default [
         sourcemap: true
       }
     ],
-    external: ['react', '@emotion/react'],
+    external: ['react'],
     plugins: [
       peerDepsExternal(),
       resolve(),
