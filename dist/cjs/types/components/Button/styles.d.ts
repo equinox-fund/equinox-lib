@@ -1,7 +1,7 @@
 declare const styles: ({ isDisabled, size, color, variant }: {
-    isDisabled: any;
-    size: any;
-    color: any;
-    variant: any;
+    isDisabled?: boolean | undefined;
+    size?: string | undefined;
+    color?: string | undefined;
+    variant?: string | undefined;
 }) => import("@emotion/utils").SerializedStyles;
 export default styles;
