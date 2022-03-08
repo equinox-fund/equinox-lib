@@ -51,6 +51,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-macros": "^3.1.0",
     "chromatic": "^6.5.1",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "postcss": "^8.4.7",
     "postcss-import": "^14.0.2",
@@ -74,6 +75,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
-    "chromatic": "npx chromatic --project-token=830e090d318f"
+    "chromatic": "npx chromatic --project-token=830e090d318f",
+    "prepare": "husky install"
   }
 }

@@ -1,6 +1,11 @@
 import tw, { css } from 'twin.macro'
 
-const styles = ({ isDisabled, size, color, variant }) => css`
+const styles = ({
+  isDisabled = false,
+  size = 'medium',
+  color = 'primary',
+  variant = 'outlined'
+}) => css`
   display: flex;
   align-items: center;
   ${tw`justify-center`}
