@@ -1,4 +1,4 @@
-export type Color =
+export type TypographyColor =
   | 'muted'
   | 'dark'
   | 'primary'
@@ -8,8 +8,8 @@ export type Color =
   | 'info'
   | 'success'
 
-export type Size = 'small' | 'medium' | 'large'
+export type TypographySize = 'small' | 'medium' | 'large'
 
 //what means  semi bold??
 // what about something like normal | medium \ thick ?
-export type FontWeight = 'normal' | 'medium' | 'semibold'
+export type TypographyFontWeight = 'normal' | 'medium' | 'semibold'

@@ -1,14 +1,18 @@
 import styles from './styles'
 import classnames from 'classnames'
 import React from 'react'
-import { Color, Size, FontWeight } from './Typography.types'
+import {
+  TypographyColor,
+  TypographySize,
+  TypographyFontWeight
+} from './Typography.types'
 
 export interface TypographyProps {
-  size?: Size
-  weight?: FontWeight
+  size?: TypographySize
+  weight?: TypographyFontWeight
   className?: string
   caption?: boolean
-  color?: Color
+  color?: TypographyColor
   uppercase?: boolean
   tag?: 'p' | 'span'
   ellipsis?: boolean

@@ -15,7 +15,7 @@ const styles = ({
   ${tw`font-sans`}
   ${tw`transition-colors`}
   ${tw`duration-base`}
-  ${tw`rounded-full`}
+  ${tw`rounded-full`} 
 
   ${isDisabled ? tw`opacity-80 cursor-not-allowed` : ''}
 

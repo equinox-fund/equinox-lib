@@ -22,16 +22,16 @@ interface ButtonProps {
 }
 declare const Button: React.FC<ButtonProps>;
 
-declare type Color = 'muted' | 'dark' | 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
-declare type Size = 'small' | 'medium' | 'large';
-declare type FontWeight = 'normal' | 'medium' | 'semibold';
+declare type TypographyColor = 'muted' | 'dark' | 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+declare type TypographySize = 'small' | 'medium' | 'large';
+declare type TypographyFontWeight = 'normal' | 'medium' | 'semibold';
 
 interface TypographyProps {
-    size?: Size;
-    weight?: FontWeight;
+    size?: TypographySize;
+    weight?: TypographyFontWeight;
     className?: string;
     caption?: boolean;
-    color?: Color;
+    color?: TypographyColor;
     uppercase?: boolean;
     tag?: 'p' | 'span';
     ellipsis?: boolean;
