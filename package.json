@@ -1,6 +1,6 @@
 {
-  "name": "equinox-lib",
-  "version": "0.0.1",
+  "name": "@equinox-fund/equinox-lib",
+  "version": "0.0.2",
   "description": "Equinox components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,9 +8,9 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Apollo-xx/equinox-theme.git"
+  "repository": "git+https://github.com/equinox-fund/equinox-lib.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "author": "jeromevvb",
   "license": "ISC",
