@@ -203,4 +203,65 @@ declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
 
 declare const useWallet: () => void;
 
-export { Banner, Button, Card, Checkbox, Heading, Icon, IconButton, MenuButton, Select, SelectOptions, Spinner, TextField, Title, Tooltip, Typography, TypographyWithLabel, useWallet };
+interface AlgorandProps {
+    className?: string;
+}
+declare const Algorand: React.FC<AlgorandProps>;
+
+interface ArrowRightProps {
+    className?: string;
+}
+declare const ArrowRight: React.FC<ArrowRightProps>;
+
+interface BinanceSmartChainProps {
+    className?: string;
+}
+declare const BinanceSmartChain: React.FC<BinanceSmartChainProps>;
+
+interface CloseProps {
+    className?: string;
+    color?: 'white' | 'black';
+}
+declare const Close: React.FC<CloseProps>;
+
+interface EthereumProps {
+    className?: string;
+}
+declare const Ethereum: React.FC<EthereumProps>;
+
+interface MetamaskProps {
+    className?: string;
+}
+declare const Metamask: React.FC<MetamaskProps>;
+
+interface MinusProps {
+    className?: string;
+}
+declare const Minus: React.FC<MinusProps>;
+
+interface PlusProps {
+    className?: string;
+}
+declare const Plus: React.FC<PlusProps>;
+
+interface PolygonProps {
+    className?: string;
+}
+declare const Polygon: React.FC<PolygonProps>;
+
+interface SolanaProps {
+    className?: string;
+}
+declare const Solana: React.FC<SolanaProps>;
+
+interface TetherProps {
+    className?: string;
+}
+declare const Tether: React.FC<TetherProps>;
+
+interface WalletConnectProps {
+    className?: string;
+}
+declare const WalletConnect: React.FC<WalletConnectProps>;
+
+export { Algorand, ArrowRight, Banner, BinanceSmartChain, Button, Card, Checkbox, Close, Ethereum, Heading, Icon, IconButton, MenuButton, Metamask, Minus, Plus, Polygon, Select, SelectOptions, Solana, Spinner, Tether, TextField, Title, Tooltip, Typography, TypographyWithLabel, WalletConnect, useWallet };
