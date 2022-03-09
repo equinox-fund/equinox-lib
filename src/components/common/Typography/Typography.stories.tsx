@@ -15,3 +15,8 @@ const Template: Story<TypographyProps> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const AsLink = Template.bind({})
+AsLink.args = {
+  hoverAsLink: true
+}
