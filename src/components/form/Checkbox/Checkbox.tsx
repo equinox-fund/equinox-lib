@@ -1,4 +1,4 @@
-import Typography, { TypographyProps } from '../../typography/Typography'
+import Typography, { TypographyProps } from '../../common/Typography'
 import classNames from 'classnames'
 import { FC, ReactNode } from 'react'
 import { GoCheck } from 'react-icons/go'

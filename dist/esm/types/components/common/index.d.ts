@@ -9,3 +9,7 @@ export { default as MenuButton } from './MenuButton';
 export { default as ProjectBadge } from './ProjectBadge';
 export { default as Spinner } from './Spinner';
 export { default as Tooltip } from './Tooltip';
+export { default as Heading } from '../common/Heading';
+export { default as Title } from './Typography';
+export { default as Typography } from './Typography';
+export { default as TypographyWithLabel } from './TypographyWithLabel';

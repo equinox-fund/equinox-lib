@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TooltipProps } from '../../common/Tooltip';
+import { TooltipProps } from '../Tooltip';
 import { IconButtonColor, IconButtonSize, IconButtonVariant } from './IconButton.types';
 export interface IconButtonProps {
     icon: ReactNode;

@@ -2,7 +2,7 @@ import classmames from 'classnames'
 import React, { ReactNode, useRef, useState } from 'react'
 import Overlay from 'react-overlays/Overlay'
 import { Placement } from 'react-overlays/usePopper'
-import Typography from '../../typography/Typography'
+import Typography from '../Typography'
 import styles from './styles'
 
 export interface TooltipProps {

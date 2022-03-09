@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import React, { FC, ReactNode } from 'react'
-import Typography from '../../typography/Typography'
+import Typography from '../../common/Typography'
 import styles from './styles'
 
 export interface TextFieldProps {

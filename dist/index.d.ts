@@ -127,6 +127,32 @@ interface SpinnerProps {
 }
 declare const Spinner: React$1.FC<SpinnerProps>;
 
+declare type HeadingColor = 'muted' | 'dark' | 'gray' | 'primary' | 'secondary' | 'success' | 'error' | 'highlight' | 'warning' | 'transparent';
+declare type HeadingSize = 'small' | 'large';
+declare type HeadingFontWeight = 'normal' | 'medium' | 'semibold';
+
+interface HeadingProps {
+    size?: HeadingSize;
+    weight?: HeadingFontWeight;
+    color?: HeadingColor;
+    className?: string;
+    uppercase?: boolean;
+    link?: boolean;
+    active?: boolean;
+}
+declare const Heading: React$1.FC<HeadingProps>;
+
+interface TypographyWithLabelProps {
+    label: string;
+    children: ReactNode | string;
+    TypographyProps?: TypographyProps | boolean;
+    TypographyLabelProps?: TypographyProps;
+    direction?: 'row' | 'column';
+    reversed?: boolean;
+    className?: string;
+}
+declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
+
 interface CheckboxProps {
     label?: string | ReactNode;
     error?: string;
@@ -241,32 +267,6 @@ interface WalletConnectProps {
     className?: string;
 }
 declare const WalletConnect: React.FC<WalletConnectProps>;
-
-declare type HeadingColor = 'muted' | 'dark' | 'gray' | 'primary' | 'secondary' | 'success' | 'error' | 'highlight' | 'warning' | 'transparent';
-declare type HeadingSize = 'small' | 'large';
-declare type HeadingFontWeight = 'normal' | 'medium' | 'semibold';
-
-interface HeadingProps {
-    size?: HeadingSize;
-    weight?: HeadingFontWeight;
-    color?: HeadingColor;
-    className?: string;
-    uppercase?: boolean;
-    link?: boolean;
-    active?: boolean;
-}
-declare const Heading: React$1.FC<HeadingProps>;
-
-interface TypographyWithLabelProps {
-    label: string;
-    children: ReactNode | string;
-    TypographyProps?: TypographyProps | boolean;
-    TypographyLabelProps?: TypographyProps;
-    direction?: 'row' | 'column';
-    reversed?: boolean;
-    className?: string;
-}
-declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
 
 declare const useWallet: () => void;
 
