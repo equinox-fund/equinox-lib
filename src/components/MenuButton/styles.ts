@@ -1,5 +1,6 @@
 import tw, { css } from 'twin.macro'
 
+// @ts-ignore
 const styles = ({ open }) => css`
   &:focus {
     outline: 0;

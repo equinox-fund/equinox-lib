@@ -1,5 +1,6 @@
 import tw, { css } from 'twin.macro'
 
+// @ts-ignore
 const styles = ({ direction, reversed }) => css`
   display: flex;
   justify-content: space-between;

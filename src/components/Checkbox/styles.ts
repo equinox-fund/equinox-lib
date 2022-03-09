@@ -1,5 +1,6 @@
 import tw, { css } from 'twin.macro'
 
+// @ts-ignore
 const styles = ({ size, align = 'center' }) => css`
   .form-checkbox {
     display: flex;
