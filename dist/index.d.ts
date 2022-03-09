@@ -66,31 +66,19 @@ interface CardProps {
 }
 declare const Card: React.FC<CardProps>;
 
-interface CheckboxProps {
-    label?: string | ReactNode;
-    error?: string;
+interface DisplayDateProps {
+    date: string;
+    format?: 'timeTo' | 'date' | 'dateTime' | 'time';
+    utc?: boolean;
     TypographyProps?: TypographyProps;
-    size?: 'small' | 'large';
-    align?: 'center' | 'start';
-    onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
-    checked?: boolean;
 }
-declare const Checkbox: FC<CheckboxProps>;
+declare const DisplayDate: React.FC<DisplayDateProps>;
 
-declare type HeadingColor = 'muted' | 'dark' | 'gray' | 'primary' | 'secondary' | 'success' | 'error' | 'highlight' | 'warning' | 'transparent';
-declare type HeadingSize = 'small' | 'large';
-declare type HeadingFontWeight = 'normal' | 'medium' | 'semibold';
-
-interface HeadingProps {
-    size?: HeadingSize;
-    weight?: HeadingFontWeight;
-    color?: HeadingColor;
+interface DividerProps {
     className?: string;
-    uppercase?: boolean;
-    link?: boolean;
-    active?: boolean;
+    horizontal?: boolean;
 }
-declare const Heading: React$1.FC<HeadingProps>;
+declare const Divider: React.FC<DividerProps>;
 
 interface TooltipProps {
     children?: ReactNode;
@@ -126,6 +114,30 @@ interface MenuButtonProps {
 }
 declare const MenuButton: React.FC<MenuButtonProps>;
 
+interface ProjectBadgeProps {
+    size?: 'small' | 'medium';
+    color?: 'primary' | 'secondary' | 'success';
+    className?: string;
+}
+declare const ProjectBadge: React.FC<ProjectBadgeProps>;
+
+interface SpinnerProps {
+    size?: 'small' | 'medium' | 'large';
+    className?: string;
+}
+declare const Spinner: React$1.FC<SpinnerProps>;
+
+interface CheckboxProps {
+    label?: string | ReactNode;
+    error?: string;
+    TypographyProps?: TypographyProps;
+    size?: 'small' | 'large';
+    align?: 'center' | 'start';
+    onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
+    checked?: boolean;
+}
+declare const Checkbox: FC<CheckboxProps>;
+
 interface SelectProps {
     options: Array<{
         value: string | number;
@@ -154,12 +166,6 @@ interface SelectOptionsProps extends CheckboxProps {
 }
 declare const SelectOptions: React$1.FC<SelectOptionsProps>;
 
-interface SpinnerProps {
-    size?: 'small' | 'medium' | 'large';
-    className?: string;
-}
-declare const Spinner: React$1.FC<SpinnerProps>;
-
 interface TextFieldProps {
     label?: string;
     helper?: string;
@@ -174,34 +180,6 @@ interface TextFieldProps {
     borders?: boolean;
 }
 declare const TextField: FC<TextFieldProps>;
-
-declare type TitleColor = 'muted' | 'dark' | 'gray' | 'primary' | 'secondary' | 'success' | 'error' | 'highlight' | 'warning';
-declare type TitleSize = 'small' | 'medium' | 'large' | 'x-large';
-declare type TitleFontWeight = 'normal' | 'medium' | 'semibold';
-
-interface TitleProps {
-    size?: TitleSize;
-    weight?: TitleFontWeight;
-    color?: TitleColor;
-    className?: string;
-    uppercase?: boolean;
-    link?: boolean;
-    active?: boolean;
-}
-declare const Title: React$1.FC<TitleProps>;
-
-interface TypographyWithLabelProps {
-    label: string;
-    children: ReactNode | string;
-    TypographyProps?: TypographyProps | boolean;
-    TypographyLabelProps?: TypographyProps;
-    direction?: 'row' | 'column';
-    reversed?: boolean;
-    className?: string;
-}
-declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
-
-declare const useWallet: () => void;
 
 interface AlgorandProps {
     className?: string;
@@ -264,4 +242,32 @@ interface WalletConnectProps {
 }
 declare const WalletConnect: React.FC<WalletConnectProps>;
 
-export { Algorand, ArrowRight, Banner, BinanceSmartChain, Button, Card, Checkbox, Close, Ethereum, Heading, Icon, IconButton, MenuButton, Metamask, Minus, Plus, Polygon, Select, SelectOptions, Solana, Spinner, Tether, TextField, Title, Tooltip, Typography, TypographyWithLabel, WalletConnect, useWallet };
+declare type HeadingColor = 'muted' | 'dark' | 'gray' | 'primary' | 'secondary' | 'success' | 'error' | 'highlight' | 'warning' | 'transparent';
+declare type HeadingSize = 'small' | 'large';
+declare type HeadingFontWeight = 'normal' | 'medium' | 'semibold';
+
+interface HeadingProps {
+    size?: HeadingSize;
+    weight?: HeadingFontWeight;
+    color?: HeadingColor;
+    className?: string;
+    uppercase?: boolean;
+    link?: boolean;
+    active?: boolean;
+}
+declare const Heading: React$1.FC<HeadingProps>;
+
+interface TypographyWithLabelProps {
+    label: string;
+    children: ReactNode | string;
+    TypographyProps?: TypographyProps | boolean;
+    TypographyLabelProps?: TypographyProps;
+    direction?: 'row' | 'column';
+    reversed?: boolean;
+    className?: string;
+}
+declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
+
+declare const useWallet: () => void;
+
+export { Algorand, ArrowRight, Banner, BinanceSmartChain, Button, Card, Checkbox, Close, DisplayDate, Divider, Ethereum, Heading, Icon, IconButton, MenuButton, Metamask, Minus, Plus, Polygon, ProjectBadge, Select, SelectOptions, Solana, Spinner, Tether, TextField, Typography as Title, Tooltip, Typography, TypographyWithLabel, WalletConnect, useWallet };
