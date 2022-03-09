@@ -8,7 +8,7 @@ import IconButton from './IconButton'
 
 expect.extend(matchers)
 
-describe('Components/Common/IconButton', () => {
+describe('Components/IconButton', () => {
   it('should render', () => {
     const { getByRole } = render(
       <IconButton icon={<GoRocket />} title="Rocket" />

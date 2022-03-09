@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Heading from './Heading'
 
-describe('Components/Common/Heading', () => {
+describe('Components/Heading', () => {
   it('should render', () => {
     const text = 'Hello'
     const { getByText } = render(<Heading size="large">{text}</Heading>)

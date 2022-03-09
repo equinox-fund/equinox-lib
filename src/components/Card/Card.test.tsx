@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Card from './Card'
 
-describe('Components/Common/Card', () => {
+describe('Components/Card', () => {
   it('should render', () => {
     const text = 'Hello'
     const { getByText } = render(<Card>{text}</Card>)

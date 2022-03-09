@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 import Checkbox, { CheckboxProps } from './Checkbox'
 
@@ -6,11 +7,15 @@ export default {
   component: Checkbox
 } as Meta
 
-const Template: Story<CheckboxProps> = (args) => (
-  <div className="p-12">
-    <Checkbox {...args} />
-  </div>
-)
+const Template: Story<CheckboxProps> = (args) => {
+  const [open, setOpen] = useState<boolean>(false)
+
+  return (
+    <div className="p-12">
+      <Checkbox {...args} onChange={() => setOpen(!open)} checked={open} />
+    </div>
+  )
+}
 
 export const Default = Template.bind({})
 Default.args = {

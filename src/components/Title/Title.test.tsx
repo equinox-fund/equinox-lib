@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Title from './Title'
 
-describe('Components/Common/Title', () => {
+describe('Components/Title', () => {
   it('should render', () => {
     const text = 'Hello'
     const { getByText } = render(<Title size="large">{text}</Title>)

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 // import '@test/test-utils'
 import Checkbox from './Checkbox'
 
-describe('Components/Form/Checkbox', () => {
+describe('Components/Checkbox', () => {
   it('should render', () => {
     const label = 'accept terms?'
     const { getByLabelText } = render(<Checkbox label={label} />)

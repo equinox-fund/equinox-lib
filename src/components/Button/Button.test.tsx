@@ -7,7 +7,7 @@ import { FaAccusoft } from 'react-icons/fa'
 
 expect.extend(matchers)
 
-describe('Components/Common/Button', () => {
+describe('Components/Button', () => {
   it('should render', () => {
     const text = 'Join pool'
     const { getByText } = render(<Button>{text}</Button>)
