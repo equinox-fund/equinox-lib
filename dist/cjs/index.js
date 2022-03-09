@@ -172,7 +172,7 @@ var _ref$1 = process.env.NODE_ENV === "production" ? {
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__$5
 };
 
-var styles$h = function styles(_ref2) {
+var styles$i = function styles(_ref2) {
   var _ref2$size = _ref2.size,
       size = _ref2$size === void 0 ? 'medium' : _ref2$size,
       _ref2$weight = _ref2.weight,
@@ -364,7 +364,7 @@ var Typography = function Typography(_a) {
 
   var Component = tag;
   return react.jsx(Component, _extends$1({
-    css: styles$h({
+    css: styles$i({
       size: size,
       weight: weight,
       color: color,
@@ -377,7 +377,7 @@ var Typography = function Typography(_a) {
   }, restProps), children);
 };
 
-var styles$g = function styles(_ref) {
+var styles$h = function styles(_ref) {
   var _ref$color = _ref.color,
       color = _ref$color === void 0 ? 'highlight' : _ref$color;
   return (
@@ -403,7 +403,7 @@ var Banner = function Banner(_ref) {
       TypographyProps = _ref.TypographyProps,
       children = _ref.children;
   return react.jsx("div", {
-    css: styles$g({
+    css: styles$h({
       color: color
     }),
     className: className
@@ -416,7 +416,7 @@ var Banner = function Banner(_ref) {
   }, cta)));
 };
 
-var styles$f = function styles(_ref) {
+var styles$g = function styles(_ref) {
   var color = _ref.color;
   return (
     /*#__PURE__*/
@@ -457,14 +457,14 @@ var Icon = function Icon(_ref) {
       color = _ref$color === void 0 ? 'secondary' : _ref$color;
   var IconComponent = svg;
   return react.jsx(IconComponent, {
-    css: styles$f({
+    css: styles$g({
       color: color
     }),
     className: className
   });
 };
 
-var styles$e = function styles(_ref) {
+var styles$f = function styles(_ref) {
   var _ref$size = _ref.size,
       size = _ref$size === void 0 ? 'medium' : _ref$size;
   return (
@@ -489,7 +489,7 @@ var Spinner = function Spinner(_ref) {
       size = _ref$size === void 0 ? 'medium' : _ref$size,
       className = _ref.className;
   return react.jsx("div", {
-    css: styles$e({
+    css: styles$f({
       size: size
     }),
     className: className,
@@ -499,7 +499,7 @@ var Spinner = function Spinner(_ref) {
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__$4() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 
-var styles$d = function styles(_ref) {
+var styles$e = function styles(_ref) {
   var _ref$isDisabled = _ref.isDisabled,
       isDisabled = _ref$isDisabled === void 0 ? false : _ref$isDisabled,
       _ref$size = _ref.size,
@@ -760,7 +760,7 @@ var Button = function Button(_a) {
   };
   var btnAttrs = Object.assign({
     role: 'button',
-    css: styles$d(cssProps),
+    css: styles$e(cssProps),
     className: className,
     disabled: isDisabled
   }, restProps);
@@ -800,7 +800,7 @@ var hoverStyles = process.env.NODE_ENV === "production" ? {
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__$3
 };
 
-var styles$c = function styles(_ref) {
+var styles$d = function styles(_ref) {
   var _ref$loading = _ref.loading,
       loading = _ref$loading === void 0 ? true : _ref$loading,
       _ref$padding = _ref.padding,
@@ -833,7 +833,7 @@ var Card = function Card(_ref) {
       _ref$hoverAsLink = _ref.hoverAsLink,
       hoverAsLink = _ref$hoverAsLink === void 0 ? false : _ref$hoverAsLink;
   return react.jsx("div", {
-    css: styles$c({
+    css: styles$d({
       loading: loading,
       padding: padding,
       hoverAsLink: hoverAsLink
@@ -903,7 +903,7 @@ var DisplayDate = function DisplayDate(_ref) {
 };
 
 // @ts-ignore
-var styles$b = function styles(_ref) {
+var styles$c = function styles(_ref) {
   var horizontal = _ref.horizontal;
   return (
     /*#__PURE__*/
@@ -919,7 +919,7 @@ var Divider = function Divider(_ref) {
   var className = _ref.className,
       horizontal = _ref.horizontal;
   return react.jsx("div", {
-    css: styles$b({
+    css: styles$c({
       horizontal: horizontal
     }),
     className: className
@@ -957,7 +957,7 @@ var buttonLarge = function buttonLarge(variant) {
 }; // @ts-ignore
 
 
-var styles$a = function styles(_ref) {
+var styles$b = function styles(_ref) {
   var size = _ref.size,
       color = _ref.color,
       variant = _ref.variant,
@@ -32567,7 +32567,7 @@ Overlay.propTypes = {
   onExited: PropTypes.func
 };
 
-var styles$9 = function styles(_ref) {
+var styles$a = function styles(_ref) {
   var _ref$placement = _ref.placement,
       placement = _ref$placement === void 0 ? 'bottom' : _ref$placement;
   return (
@@ -32635,7 +32635,7 @@ var Tooltip = function Tooltip(_ref) {
     var props = _ref2.props,
         arrowProps = _ref2.arrowProps;
     return react.jsx("div", {
-      css: styles$9({
+      css: styles$a({
         placement: placement
       })
     }, react.jsx("div", _extends$1({
@@ -32686,7 +32686,7 @@ var IconButton = function IconButton(_a) {
   var btnAttrs = Object.assign(Object.assign(Object.assign({}, !href && {
     role: 'button'
   }), {
-    css: styles$a(styleProps),
+    css: styles$b(styleProps),
     className: className,
     disabled: disabled,
     title: title
@@ -32716,6 +32716,56 @@ var WithTooltip = function WithTooltip(_ref) {
   }
 
   return children;
+};
+
+// @ts-ignore
+var styles$9 = function styles(_ref) {
+  var loading = _ref.loading,
+      showPreloader = _ref.showPreloader;
+  return (
+    /*#__PURE__*/
+
+    /*#__PURE__*/
+    react.css("position:relative;height:100%;", showPreloader &&
+    /*#__PURE__*/
+
+    /*#__PURE__*/
+    react.css("&:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:", loading ? 1 : 0, ";background-color:#0d0d0d;pointer-events:", loading ? 'auto' : 'none', ";transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1); transition-duration:150ms; transition-delay:150ms; animation:pulse-bg 1s alternate ease infinite;}" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;"), process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFPUSIsImZpbGUiOiJzdHlsZXMudHMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgdHcsIHsgY3NzIH0gZnJvbSAndHdpbi5tYWNybyc7XG4vLyBAdHMtaWdub3JlXG5jb25zdCBzdHlsZXMgPSAoeyBsb2FkaW5nLCBzaG93UHJlbG9hZGVyIH0pID0+IGNzcyBgXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuXG4gICR7c2hvd1ByZWxvYWRlciAmJlxuICAgIGNzcyBgXG4gICAgJjphZnRlciB7XG4gICAgICBjb250ZW50OiAnJztcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIHRvcDogMDtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgIG9wYWNpdHk6ICR7bG9hZGluZyA/IDEgOiAwfTtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwZDBkMGQ7XG4gICAgICBwb2ludGVyLWV2ZW50czogJHtsb2FkaW5nID8gJ2F1dG8nIDogJ25vbmUnfTtcbiAgICAgICR7dHcgYHRyYW5zaXRpb24tb3BhY2l0eWB9XG4gICAgICAke3R3IGBkdXJhdGlvbi1zbG93YH1cbiAgICAgICR7dHcgYGRlbGF5LWJhc2VgfVxuICAgICAgYW5pbWF0aW9uOiBwdWxzZS1iZyAxcyBhbHRlcm5hdGUgZWFzZSBpbmZpbml0ZTtcbiAgICB9XG4gIGB9XG5cbiAgaW1nIHtcbiAgICBvcGFjaXR5OiAke2xvYWRpbmcgPyAwIDogMX07XG4gICAgJHt0dyBgdHJhbnNpdGlvbi1vcGFjaXR5YH1cbiAgICAke3R3IGBkdXJhdGlvbi1zbG93YH1cbiAgICAke3R3IGBkZWxheS1iYXNlYH1cbiAgfVxuXG4gIEBrZXlmcmFtZXMgcHVsc2UtYmcge1xuICAgIDAlIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwZDBkMGQ7XG4gICAgfVxuICAgIDEwMCUge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzEyMTIxMjtcbiAgICB9XG4gIH1cbmA7XG5leHBvcnQgZGVmYXVsdCBzdHlsZXM7XG4vLyMgc291cmNlTWFwcGluZ1VSTD1zdHlsZXMuanMubWFwIl19 */", process.env.NODE_ENV === "production" ? "" : ";label:styles;"), " img{opacity:", loading ? 0 : 1, ";transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1); transition-duration:150ms; transition-delay:150ms;;}@keyframes pulse-bg{0%{background-color:#0d0d0d;}100%{background-color:#121212;}}" + (process.env.NODE_ENV === "production" ? "" : ";label:styles;"), process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFbUQiLCJmaWxlIjoic3R5bGVzLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHR3LCB7IGNzcyB9IGZyb20gJ3R3aW4ubWFjcm8nO1xuLy8gQHRzLWlnbm9yZVxuY29uc3Qgc3R5bGVzID0gKHsgbG9hZGluZywgc2hvd1ByZWxvYWRlciB9KSA9PiBjc3MgYFxuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGhlaWdodDogMTAwJTtcblxuICAke3Nob3dQcmVsb2FkZXIgJiZcbiAgICBjc3MgYFxuICAgICY6YWZ0ZXIge1xuICAgICAgY29udGVudDogJyc7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICB0b3A6IDA7XG4gICAgICBsZWZ0OiAwO1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBoZWlnaHQ6IDEwMCU7XG4gICAgICBvcGFjaXR5OiAke2xvYWRpbmcgPyAxIDogMH07XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMGQwZDBkO1xuICAgICAgcG9pbnRlci1ldmVudHM6ICR7bG9hZGluZyA/ICdhdXRvJyA6ICdub25lJ307XG4gICAgICAke3R3IGB0cmFuc2l0aW9uLW9wYWNpdHlgfVxuICAgICAgJHt0dyBgZHVyYXRpb24tc2xvd2B9XG4gICAgICAke3R3IGBkZWxheS1iYXNlYH1cbiAgICAgIGFuaW1hdGlvbjogcHVsc2UtYmcgMXMgYWx0ZXJuYXRlIGVhc2UgaW5maW5pdGU7XG4gICAgfVxuICBgfVxuXG4gIGltZyB7XG4gICAgb3BhY2l0eTogJHtsb2FkaW5nID8gMCA6IDF9O1xuICAgICR7dHcgYHRyYW5zaXRpb24tb3BhY2l0eWB9XG4gICAgJHt0dyBgZHVyYXRpb24tc2xvd2B9XG4gICAgJHt0dyBgZGVsYXktYmFzZWB9XG4gIH1cblxuICBAa2V5ZnJhbWVzIHB1bHNlLWJnIHtcbiAgICAwJSB7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMGQwZDBkO1xuICAgIH1cbiAgICAxMDAlIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMxMjEyMTI7XG4gICAgfVxuICB9XG5gO1xuZXhwb3J0IGRlZmF1bHQgc3R5bGVzO1xuLy8jIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGVzLmpzLm1hcCJdfQ== */", process.env.NODE_ENV === "production" ? "" : ";label:styles;")
+  );
+};
+
+var Image = function Image(_ref) {
+  var src = _ref.src,
+      alt = _ref.alt,
+      onLoad = _ref.onLoad,
+      className = _ref.className,
+      _ref$showPreloader = _ref.showPreloader,
+      showPreloader = _ref$showPreloader === void 0 ? true : _ref$showPreloader;
+
+  var _useState = React$1.useState(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var handleImageLoaded = function handleImageLoaded() {
+    setTimeout(function () {
+      return setLoading(false);
+    }, 50);
+    if (onLoad) onLoad();
+  };
+
+  return react.jsx("div", {
+    className: className
+  }, react.jsx("div", {
+    css: styles$9({
+      loading: loading,
+      showPreloader: showPreloader
+    })
+  }, react.jsx("img", {
+    src: src,
+    alt: alt,
+    onLoad: handleImageLoaded
+  })));
 };
 
 // @ts-ignore
@@ -33937,6 +33987,7 @@ exports.Ethereum = Ethereum;
 exports.Heading = Heading;
 exports.Icon = Icon;
 exports.IconButton = IconButton;
+exports.Image = Image;
 exports.MenuButton = MenuButton;
 exports.Metamask = Metamask;
 exports.Minus = Minus;

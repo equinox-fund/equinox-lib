@@ -5,6 +5,7 @@ export { default as DisplayDate } from './DisplayDate';
 export { default as Divider } from './Divider';
 export { default as Icon } from './Icon';
 export { default as IconButton } from './IconButton';
+export { default as Image } from './Image';
 export { default as MenuButton } from './MenuButton';
 export { default as ProjectBadge } from './ProjectBadge';
 export { default as Spinner } from './Spinner';

@@ -108,6 +108,15 @@ interface IconButtonProps {
 }
 declare const IconButton: React.FC<IconButtonProps>;
 
+interface ImageProps {
+    src: string;
+    alt: string;
+    className?: string;
+    onLoad?: () => void;
+    showPreloader?: boolean;
+}
+declare const Image: React.FC<ImageProps>;
+
 interface MenuButtonProps {
     open: boolean;
     onClick: (open: boolean) => void;
@@ -270,4 +279,4 @@ declare const TypographyWithLabel: React.FC<TypographyWithLabelProps>;
 
 declare const useWallet: () => void;
 
-export { Algorand, ArrowRight, Banner, BinanceSmartChain, Button, Card, Checkbox, Close, DisplayDate, Divider, Ethereum, Heading, Icon, IconButton, MenuButton, Metamask, Minus, Plus, Polygon, ProjectBadge, Select, SelectOptions, Solana, Spinner, Tether, TextField, Typography as Title, Tooltip, Typography, TypographyWithLabel, WalletConnect, useWallet };
+export { Algorand, ArrowRight, Banner, BinanceSmartChain, Button, Card, Checkbox, Close, DisplayDate, Divider, Ethereum, Heading, Icon, IconButton, Image, MenuButton, Metamask, Minus, Plus, Polygon, ProjectBadge, Select, SelectOptions, Solana, Spinner, Tether, TextField, Typography as Title, Tooltip, Typography, TypographyWithLabel, WalletConnect, useWallet };
