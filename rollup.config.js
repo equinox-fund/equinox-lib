@@ -6,6 +6,7 @@ import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import postcss from 'rollup-plugin-postcss'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import copy from 'rollup-plugin-copy'
 
 const packageJson = require('./package.json')
 
@@ -41,6 +42,14 @@ export default [
         babelHelpers: 'bundled',
         include: ['src/**/*'],
         extensions
+      }),
+      copy({
+        targets: [
+          {
+            src: ['tailwind/plugins.js', 'tailwind/theme.js'],
+            dest: 'dist/theme'
+          }
+        ]
       })
     ]
   },
