@@ -47,7 +47,7 @@ export default [
         targets: [
           {
             src: ['tailwind/plugins.js', 'tailwind/theme.js'],
-            dest: 'dist/theme'
+            dest: 'dist/tailwind'
           }
         ]
       })
