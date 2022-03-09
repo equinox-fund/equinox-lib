@@ -1,5 +1,5 @@
-import Title from '../../typography/Title'
-import Typography from '../../typography/Typography'
+import Title from '../Title'
+import Typography from '../Typography'
 import { Meta, Story } from '@storybook/react'
 import Card, { CardProps } from './Card'
 
