@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { TypographyProps } from '../../typography/Typography';
+import { TypographyProps } from '../Typography';
 export interface DisplayDateProps {
     date: string;
     format?: 'timeTo' | 'date' | 'dateTime' | 'time';

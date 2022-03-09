@@ -1,4 +1,4 @@
-import { TypographyProps } from '../../typography/Typography';
+import { TypographyProps } from '../../common/Typography';
 import { FC, ReactNode } from 'react';
 export interface CheckboxProps {
     label?: string | ReactNode;

@@ -9,13 +9,19 @@ export default {
 
 const Template: Story<BannerProps> = (args) => (
   <div className="w-full pt-8 pb-24">
-    <Banner
-      {...args}
-      text="Please connect your wallet."
-      cta={<Button color="secondary">Connect wallet</Button>}
-    />
+    <Banner {...args} />
   </div>
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  text: 'Please connect your wallet.',
+  cta: <Button color="secondary">Connect wallet</Button>
+}
+
+export const Muted = Template.bind({})
+Muted.args = {
+  text: 'Please connect your wallet.',
+  cta: <Button color="secondary">Connect wallet</Button>,
+  color: 'muted'
+}

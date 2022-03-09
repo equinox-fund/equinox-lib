@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { FC } from 'react'
 import { BsChevronDown } from 'react-icons/bs'
-import Typography from '../../typography/Typography'
+import Typography from '../../common/Typography'
 import styles from './styles'
 
 export interface SelectProps {

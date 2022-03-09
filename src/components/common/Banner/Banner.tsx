@@ -1,4 +1,4 @@
-import Typography, { TypographyProps } from '../../typography/Typography'
+import Typography, { TypographyProps } from '../Typography'
 import React, { ReactNode } from 'react'
 import styles from './styles'
 

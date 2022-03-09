@@ -1,4 +1,4 @@
-import Typography, { TypographyProps } from '../../typography/Typography'
+import Typography, { TypographyProps } from '../Typography'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import relativeTime from 'dayjs/plugin/relativeTime'

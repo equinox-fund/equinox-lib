@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import React from 'react'
 import Checkbox, { CheckboxProps } from '../Checkbox'
-import Typography from '../../typography/Typography'
+import Typography from '../../common/Typography'
 import styles from './styles'
 
 export interface SelectOptionsProps extends CheckboxProps {

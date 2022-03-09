@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styles from './styles'
-import Tooltip, { TooltipProps } from '../../common/Tooltip'
+import Tooltip, { TooltipProps } from '../Tooltip'
 import {
   IconButtonColor,
   IconButtonSize,
@@ -83,17 +83,13 @@ interface WithTooltipProps {
   children: ReactNode
 }
 
-const WithTooltip = ({
+const WithTooltip: React.FC<WithTooltipProps> = ({
   tooltip,
   TooltipProps = {},
   children
-}: WithTooltipProps) => {
+}) => {
   if (tooltip && TooltipProps) {
-    return (
-      <Tooltip {...TooltipProps}>
-        {children}
-      </Tooltip>
-    )
+    return <Tooltip {...TooltipProps}>{children}</Tooltip>
   }
 
   return children

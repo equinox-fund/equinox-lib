@@ -1,5 +1,5 @@
-import Title from '../../typography/Title'
-import Typography from '../../typography/Typography'
+import Title from '../Title'
+import Typography from '../Typography'
 import { Meta, Story } from '@storybook/react'
 import Card, { CardProps } from './Card'
 
@@ -37,6 +37,17 @@ const Template: Story<CardProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   loading: false,
-  padding: true,
   hoverAsLink: false
+}
+
+export const Loading = Template.bind({})
+Loading.args = {
+  loading: true,
+  hoverAsLink: false
+}
+
+export const onHover = Template.bind({})
+onHover.args = {
+  loading: false,
+  hoverAsLink: true
 }

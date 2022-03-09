@@ -1,4 +1,4 @@
-import { TypographyProps } from '../../typography/Typography';
+import { TypographyProps } from '../Typography';
 import React, { ReactNode } from 'react';
 export interface BannerProps {
     text?: string;

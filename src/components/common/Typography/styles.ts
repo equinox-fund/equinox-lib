@@ -48,6 +48,7 @@ const styles = ({
 
     &:hover {
       ${tw`text-neutral-silver`}
+      ${tw`cursor-pointer`}
     }
   }
 `
