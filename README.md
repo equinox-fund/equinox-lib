@@ -10,6 +10,12 @@ Add `.npmrpc` to your repository with the following content
 @equinox-fund:registry=https://npm.pkg.github.com
 ```
 
+Then install the dependency:
+
+```bash
+npm install @equinox-fund/equinox-lib@latest
+```
+
 if you have a login authentification error, it means that you need to log in to https://npm.pkg.github.com using your github handle and authorization token that you need to create for it.
 
 To create a token, click on your github avatar > settings > developer settings > Personal access tokens > Generate new token
@@ -25,10 +31,6 @@ $ npm login --scope=@YOUR_USERNAME --registry=https://npm.pkg.github.com
 ```
 
 As soon as you are log in, you can now install the package
-
-```bash
-npm install @equinox-fund/equinox-lib@latest
-```
 
 ## Storybook
 

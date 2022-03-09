@@ -15,6 +15,14 @@ module.exports = {
     }
   ],
   framework: '@storybook/react',
+  refs: {
+    'chromatic-published-Storybook': {
+      // The title of your Storybook
+      title: 'Design System',
+      // The url provided by Chromatic when it was published
+      url: 'https://equinox.chromatic.com'
+    }
+  },
   webpackFinal: async (config) => {
     config.module.rules[0].use[0].options.presets = [
       require.resolve('@babel/preset-env'),
