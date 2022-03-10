@@ -1,7 +1,7 @@
 import tw, { css } from 'twin.macro'
 
 // @ts-ignore
-const styles = ({ loading, showPreloader }) => css`
+const styles = ({ showPreloader }) => css`
   position: relative;
   height: 100%;
 
@@ -14,9 +14,9 @@ const styles = ({ loading, showPreloader }) => css`
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: ${loading ? 1 : 0};
+      opacity: 0;
       background-color: #0d0d0d;
-      pointer-events: ${loading ? 'auto' : 'none'};
+      pointer-events: 'none';
       ${tw`transition-opacity`}
       ${tw`duration-slow`}
       ${tw`delay-base`}
@@ -25,10 +25,21 @@ const styles = ({ loading, showPreloader }) => css`
   `}
 
   img {
-    opacity: ${loading ? 0 : 1};
+    opacity: 1;
     ${tw`transition-opacity`}
     ${tw`duration-slow`}
     ${tw`delay-base`}
+  }
+
+  &.loading {
+    &:after {
+      opacity: 1;
+      pointer-events: 'auto';
+    }
+
+    img {
+      opacity: 0;
+    }
   }
 
   @keyframes pulse-bg {
