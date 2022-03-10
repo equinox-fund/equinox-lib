@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useState } from 'react'
 import styles from './styles'
 
 export interface ImageProps {
@@ -16,20 +16,16 @@ const Image: React.FC<ImageProps> = ({
   className,
   showPreloader = true
 }) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const [loading, setLoading] = useState(true)
 
   const handleImageLoaded = () => {
-    setTimeout(() => {
-      if (ref.current) {
-        ref.current.querySelector('.loading')?.classList.remove('loading')
-      }
-    }, 50)
+    setTimeout(() => setLoading(false), 50)
     if (onLoad) onLoad()
   }
 
   return (
-    <div className={className} ref={ref}>
-      <div css={styles({ showPreloader })} className="loading">
+    <div className={className}>
+      <div css={styles({ loading, showPreloader })}>
         <img src={src} alt={alt} onLoad={handleImageLoaded} />
       </div>
     </div>
