@@ -1,6 +1,6 @@
 {
   "name": "@equinox-fund/equinox-lib",
-  "version": "0.0.6",
+  "version": "0.0.11",
   "description": "Equinox components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -47,6 +47,7 @@
     "@testing-library/react": "^12.1.3",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.39",
+    "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
@@ -70,7 +71,8 @@
     "dayjs": "^1.10.8",
     "react-icons": "^4.3.1",
     "react-overlays": "^5.1.1",
-    "twin.macro": "^2.8.2"
+    "twin.macro": "^2.8.2",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "rollup": "rm -rf dist && rollup -c",

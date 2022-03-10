@@ -1,5 +1,6 @@
 import tw, { css } from 'twin.macro'
 
+// @ts-ignore
 const styles = ({ size, borders }) => css`
   display: block;
   ${tw`mb-4`};
