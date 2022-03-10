@@ -49,6 +49,7 @@ const styles = ({
     &:hover {
       ${tw`text-neutral-silver`}
       ${tw`cursor-pointer`}
+      ${color === 'muted' && tw`text-secondary`};
     }
   }
 `
