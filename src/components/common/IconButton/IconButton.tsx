@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode, ReactElement } from 'react'
 import styles from './styles'
 import Tooltip, { TooltipProps } from '../Tooltip'
 import {
@@ -83,16 +83,16 @@ interface WithTooltipProps {
   children: ReactNode
 }
 
-const WithTooltip: React.FC<WithTooltipProps> = ({
+const WithTooltip = ({
   tooltip,
   TooltipProps = {},
   children
-}) => {
+}: WithTooltipProps): ReactElement => {
   if (tooltip && TooltipProps) {
     return <Tooltip {...TooltipProps}>{children}</Tooltip>
   }
 
-  return children
+  return <>{children}</>
 }
 
 export default IconButton

@@ -1,5 +1,6 @@
 import tw, { css } from 'twin.macro'
 
+// @ts-ignore
 const styles = ({ color }) => css`
   ${color === 'muted' && tw`text-neutral-silver`};
   ${color === 'dark' && tw`text-neutral`};

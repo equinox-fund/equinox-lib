@@ -59,6 +59,7 @@ const styles = ({
   ${variant === 'text' && buttonText({ color, isDisabled })}
 `
 
+// @ts-ignore
 const buttonContained = ({ color, isDisabled }) => css`
   ${color === 'primary' && tw`bg-primary text-secondary`}
   ${color === 'secondary' && tw`bg-secondary text-neutral`}
@@ -69,6 +70,7 @@ const buttonContained = ({ color, isDisabled }) => css`
   ${isDisabled ? outlinedDisabled : containedHover({ color })}
 `
 
+// @ts-ignore
 const containedHover = ({ color }) => css`
   &:hover {
     ${color === 'primary' && tw`bg-primary-light`}
@@ -81,6 +83,7 @@ const containedHover = ({ color }) => css`
   }
 `
 
+// @ts-ignore
 const buttonText = ({ color, isDisabled }) => css`
   ${color === 'primary' && tw`text-primary`}
   ${color === 'secondary' && tw`text-secondary`}
@@ -88,6 +91,7 @@ const buttonText = ({ color, isDisabled }) => css`
   ${!isDisabled && buttonTextHover({ color })}
 `
 
+// @ts-ignore
 const buttonTextHover = ({ color }) => css`
   &:hover {
     ${color === 'primary' && tw`text-primary-light`}
@@ -100,6 +104,7 @@ const buttonTextHover = ({ color }) => css`
   }
 `
 
+// @ts-ignore
 const buttonOutlined = ({ color, isDisabled }) => css`
   ${tw`border-2`};
   ${color === 'primary' && tw`border-primary text-secondary`}
@@ -112,6 +117,7 @@ const outlinedDisabled = css`
   opacity: 0.5;
 `
 
+// @ts-ignore
 const outlinedHover = ({ color }) => css`
   &:hover {
     ${color === 'primary' && tw`border-primary-light text-secondary`}
