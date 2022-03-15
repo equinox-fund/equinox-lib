@@ -1,6 +1,7 @@
 export { default as Banner } from './Banner'
 export { default as Button } from './Button'
 export { default as Card } from './Card'
+export { default as ChainIcon } from './ChainIcon'
 export { default as DisplayDate } from './DisplayDate'
 export { default as Divider } from './Divider'
 export { default as Heading } from './Heading'
