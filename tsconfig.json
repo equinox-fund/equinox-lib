@@ -11,7 +11,7 @@
     "outDir": "dist",
     "declarationDir": "types",
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "checkJs": true
   },
