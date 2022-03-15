@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import ChainIcon from './ChainIcon'
 
-describe('Components/Form/ChainIcon', () => {
+describe('components/common/ChainIcon', () => {
   it('should render ETH', () => {
     const { queryByTestId } = render(<ChainIcon chainId={1} />)
     expect(queryByTestId('eth-svg')).toBeInTheDocument()
