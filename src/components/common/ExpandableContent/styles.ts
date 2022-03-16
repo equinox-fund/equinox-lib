@@ -2,7 +2,7 @@ import tw, { css } from 'twin.macro'
 
 const styles = css`
   ${tw`w-full`}
-  
+
   &.root {
     ${tw`border-b`}
     ${tw`border-neutral-charcoal`}
@@ -33,6 +33,11 @@ const styles = css`
 
       h4 {
         ${tw`text-heading-sm`}
+      }
+
+      .icon {
+        ${tw`w-7`}
+        ${tw`flex-shrink-0`}
       }
     }
 

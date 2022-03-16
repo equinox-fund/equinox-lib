@@ -26,9 +26,9 @@ const ExpandableContent: React.FC<ExpandableContentProps> = ({
           {label}
         </Title>
         {open ? (
-          <MinusIcon className="w-7 flex-shrink-0" />
+          <MinusIcon className="icon" />
         ) : (
-          <PlusIcon className="w-7 flex-shrink-0" />
+          <PlusIcon className="icon" />
         )}
       </button>
       {open && (
