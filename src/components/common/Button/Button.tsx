@@ -18,6 +18,7 @@ export interface ButtonProps {
   submit?: boolean
   icon?: IconType
   IconProps?: { color?: TIconColor; className?: string }
+  justify?: 'center' | 'between'
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -33,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   IconProps = {},
   submit = false,
+  justify = 'center',
   ...restProps
 }) => {
   const isDisabled = loading || disabled
@@ -41,7 +43,8 @@ const Button: React.FC<ButtonProps> = ({
     isDisabled,
     size,
     color,
-    variant
+    variant,
+    justify
   }
 
   const btnAttrs = {
