@@ -9,7 +9,7 @@ export interface ModalProps {
   setShow: (boolean) => void
   title?: string
   children: ReactNode
-  size?: 'small' | 'medium' | 'large' | 'max'
+  size?: 'small' | 'medium' | 'large' | 'x-large'
   padding?: boolean
   backdropClose?: boolean
   centered?: boolean
