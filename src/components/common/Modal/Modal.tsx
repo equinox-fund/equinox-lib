@@ -9,9 +9,10 @@ export interface ModalProps {
   setShow: (boolean) => void
   title?: string
   children: ReactNode
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large' | 'max'
   padding?: boolean
   backdropClose?: boolean
+  centered?: boolean
 }
 
 interface IModalContext {
@@ -35,7 +36,8 @@ const Modal: React.FC<ModalProps> = ({
   size = 'medium',
   children,
   padding = true,
-  backdropClose = true
+  backdropClose = true,
+  centered = false
 }) => {
   const [canClose, setCanClose] = useState(true)
 
@@ -64,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({
   })
 
   return (
-    <ModalContainer css={styles({ padding, size })} show={show}>
+    <ModalContainer css={styles({ padding, size, centered })} show={show}>
       <ModalContext.Provider
         value={{ enableCloseAction, disableCloseAction, canClose, closeModal }}
       >
