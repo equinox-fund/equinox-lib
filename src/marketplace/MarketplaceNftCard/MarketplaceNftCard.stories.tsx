@@ -1,14 +1,14 @@
 import { Meta, Story } from '@storybook/react'
-import NftCard, { NftCardProps } from './NftCard'
+import MarketplaceNftCard, { MarketplaceNftCardProps } from './MarketplaceNftCard'
 
 export default {
-  title: 'marketplace/NftCard',
-  component: NftCard
+  title: 'marketplace/MarketplaceNftCard',
+  component: MarketplaceNftCard
 } as Meta
 
-const Template: Story<NftCardProps> = (args) => (
-  <div className="grid grid-cols-3 gap-x-8 px-12 py-12">
-    <NftCard {...args} />
+const Template: Story<MarketplaceNftCardProps> = (args) => (
+  <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 px-12 py-12">
+    <MarketplaceNftCard {...args} />
   </div>
 )
 

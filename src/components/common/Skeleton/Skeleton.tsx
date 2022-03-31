@@ -5,7 +5,7 @@ interface SkeletonProps {
 }
 
 const Skeleton: React.FC<SkeletonProps> = ({ className }) => {
-  return <div css={styles} className={className} />
+  return <div css={styles} className={className} data-testid="skeleton" />
 }
 
 export default Skeleton

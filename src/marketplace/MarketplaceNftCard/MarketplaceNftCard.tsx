@@ -8,20 +8,20 @@ import DisplayCurrency from '../../components/common/DisplayCurrency'
 import React from 'react'
 import styles from './styles'
 
-export interface NftCardProps {
+export interface MarketplaceNftCardProps {
   name: string
   description?: string
   image: string
-  available: boolean
+  available: number
   lowestPrice?: number
   price: number
   className?: string
   loading?: boolean
-  onClick: (e: EventTarget) => void
-  onClickPurchase: (e: EventTarget) => void
+  onClick?: (e: EventTarget) => void
+  onClickPurchase?: (e: EventTarget) => void
 }
 
-const NftCard: React.FC<NftCardProps> = ({
+const NftCard: React.FC<MarketplaceNftCardProps> = ({
   name,
   description,
   image,
@@ -31,10 +31,8 @@ const NftCard: React.FC<NftCardProps> = ({
   className,
   loading,
   onClick,
-  onClickPurchase,
-  children
+  onClickPurchase
 }) => {
-
   const handleClick = (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -51,20 +49,22 @@ const NftCard: React.FC<NftCardProps> = ({
 
   const skeleton = (
     <>
-      <Skeleton className="w-20 h-4 mb-4" />
+      <Skeleton className="w-20 h-6 mb-6" />
       <Skeleton className="card-image-wrapper" />
-      <Skeleton className="w-16 h-4 mb-2" />
-      <Skeleton className="w-32 h-4 mb-6" />
-      <Skeleton className="w-24 h-4" />
+      <Skeleton className="w-24 h-6 mb-2" />
+      <Skeleton className="w-48 h-6 mb-6" />
+      <Skeleton className="w-40 h-12" />
     </>
   )
 
   return (
     <div css={styles} className={className} onClick={handleClick}>
-      <Card>
-        {loading ? skeleton : (
+      <Card hoverAsLink>
+        {loading ? (
+          skeleton
+        ) : (
           <>
-            <Title size="small" className="mb-6">
+            <Title size="medium" className="mb-6">
               {name}
             </Title>
             <div className="card-image-wrapper">
@@ -75,32 +75,40 @@ const NftCard: React.FC<NftCardProps> = ({
                 showPreloader
               />
             </div>
-            <div className="mb-6">
-              <Title className="mb-2">{price} BNB</Title>
-              {description && (
-                <Typography caption size="large" className="mb-2">
-                  {description}
-                </Typography>
-              )}
+            <div className="mb-8">
+              <Title size="large">{price} BNB</Title>
+              {description && <Typography>{description}</Typography>}
               {lowestPrice && (
-                <Typography caption size="large" color="muted">
-                  Lowest price
-                  <DisplayCurrency
-                    amount={lowestPrice}
-                    TypographyProps={{
-                      caption: true,
-                      size: 'large',
-                      color: 'muted',
-                      className: 'inline-block ml-1'
-                    }}
-                  />
-                  <span className="mx-1.5">{'•'}</span>
-                  <span>{available} available</span>
-                </Typography>
+                <>
+                  <Typography color="muted">
+                    Lowest price
+                    <DisplayCurrency
+                      amount={lowestPrice}
+                      maximumDecimals={0}
+                      TypographyProps={{
+                        color: 'muted',
+                        className: 'inline-block ml-1'
+                      }}
+                    />
+                    <span className="mx-2 hidden xs:inline-block md:hidden lg:inline-block">
+                      {'•'}
+                    </span>
+                    <span className="underline hidden xs:inline-block md:hidden lg:inline-block">
+                      {available} available
+                    </span>
+                  </Typography>
+                  <Typography
+                    color="muted"
+                    className="xs:hidden md:block lg:hidden underline"
+                  >
+                    {available} available
+                  </Typography>
+                </>
               )}
             </div>
             <Button
               variant="contained"
+              size="large"
               onClick={handleClickBuy}
               disabled={loading}
             >

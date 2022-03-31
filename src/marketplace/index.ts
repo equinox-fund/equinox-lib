@@ -1,1 +1,2 @@
-export { default as NftCard } from './NftCard'
+export { default as CoreNftCard } from './CoreNftCard'
+export { default as MarketplaceNftCard } from './MarketplaceNftCard'

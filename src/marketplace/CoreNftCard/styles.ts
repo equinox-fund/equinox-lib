@@ -1,10 +1,7 @@
 import tw, { css } from 'twin.macro'
 
 const styles = css`
-  .skeleton {
-    ${tw`bg-neutral-charcoal`}
-    ${tw`animate-pulse`}
-  }
+  ${tw`text-center`}
 
   .card-image-wrapper {
     width: 100%;
