@@ -69,6 +69,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.11.1",
     "@contentful/rich-text-types": "^15.11.1",
+    "class-validator": "^0.13.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.8",
     "react-icons": "^4.3.1",
