@@ -70,7 +70,7 @@ const NftListing: React.FC<NftListingProps> = ({
     history
   } = nft
 
-  const lowestPrice = offers.length ? (offers[0]?.price * ethPrice * 100) / 100 : null
+  const lowestPrice = offers?.length ? (offers[0]?.price * ethPrice * 100) / 100 : null
 
   const skeleton = (
     <>
