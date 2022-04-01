@@ -5,7 +5,6 @@ import Button from '../../components/common/Button'
 import Image from '../../components/common/Image'
 import Card from '../../components/common/Card'
 import DisplayCurrency from '../../components/common/DisplayCurrency'
-import React from 'react'
 import styles from './styles'
 
 export interface CoreNftCardProps {

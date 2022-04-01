@@ -2,7 +2,6 @@ import Divider from '../../../components/common/Divider'
 import DisplayDate from '../../../components/common/DisplayDate'
 import Typography from '../../../components/common/Typography'
 import { NftProps } from '../NftListing'
-import React from 'react'
 
 export interface NftListingInfoProps {
   nft: NftProps

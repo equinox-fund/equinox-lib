@@ -8,7 +8,6 @@ import RoundedTabs from '../../components/common/RoundedTabs'
 import NftInfo from './Info'
 import NftHistory from './History'
 import NftOffers from './Offers'
-import React from 'react'
 import styles from './styles'
 
 export interface NftOfferProps  {
