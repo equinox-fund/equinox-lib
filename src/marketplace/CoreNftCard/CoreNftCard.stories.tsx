@@ -15,7 +15,7 @@ const Template: Story<CoreNftCardProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   name: 'Vernal',
-  image: '/nft/vernal.jpg',
+  imageEl: <img src="/nft/vernal.jpg" />,
   price: 1.99,
   usdPrice: 884.4,
   loading: false
@@ -24,7 +24,7 @@ Default.args = {
 export const Loading = Template.bind({})
 Loading.args = {
   name: 'Autumnal',
-  image: '/nft/autumnal.jpg',
+  imageEl: <img src="/nft/autumnal.jpg" />,
   price: 0.5,
   usdPrice: 678,
   loading: true

@@ -15,7 +15,7 @@ const Template: Story<MarketplaceNftCardProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   name: 'Autumnal',
-  image: '/nft/autumnal.jpg',
+  imageEl: <img src="/nft/autumnal.jpg" />,
   price: 0.5,
   lowestPrice: 678,
   available: 5,
@@ -26,7 +26,7 @@ export const WithDescription = Template.bind({})
 WithDescription.args = {
   name: 'Summer',
   description: 'Equinox Summer NFT',
-  image: '/nft/summer.jpg',
+  imageEl: <img src="/nft/summer.jpg" />,
   price: 38,
   lowestPrice: 16835.78,
   available: 5,
@@ -36,7 +36,7 @@ WithDescription.args = {
 export const Loading = Template.bind({})
 Loading.args = {
   name: 'Autumnal',
-  image: '/nft/autumnal.jpg',
+  imageEl: <img src="/nft/autumnal.jpg" />,
   price: 0.5,
   lowestPrice: 678,
   available: 5,

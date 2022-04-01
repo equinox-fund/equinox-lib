@@ -5,11 +5,12 @@ import Button from '../../components/common/Button'
 import Image from '../../components/common/Image'
 import Card from '../../components/common/Card'
 import DisplayCurrency from '../../components/common/DisplayCurrency'
+import { ReactNode } from 'react'
 import styles from './styles'
 
 export interface CoreNftCardProps {
   name: string
-  image: string
+  imageEl: ReactNode
   price: number
   usdPrice: number
   loading?: boolean
@@ -18,7 +19,7 @@ export interface CoreNftCardProps {
 
 const CoreNftCard: React.FC<CoreNftCardProps> = ({
   name,
-  image,
+  imageEl,
   price,
   usdPrice,
   loading,
@@ -52,12 +53,9 @@ const CoreNftCard: React.FC<CoreNftCardProps> = ({
               {name}
             </Title>
             <div className="card-image-wrapper">
-              <Image
-                src={image}
-                alt={name}
-                className="card-image"
-                showPreloader
-              />
+              <div className="card-image">
+                {imageEl}
+              </div>
             </div>
             <div className="mb-8">
               <div className="md:hidden mb-8">

@@ -5,12 +5,13 @@ import Button from '../../components/common/Button'
 import Image from '../../components/common/Image'
 import Card from '../../components/common/Card'
 import DisplayCurrency from '../../components/common/DisplayCurrency'
+import { ReactNode } from 'react'
 import styles from './styles'
 
 export interface MarketplaceNftCardProps {
   name: string
   description?: string
-  image: string
+  imageEl: ReactNode
   available: number
   lowestPrice?: number
   price: number
@@ -23,7 +24,7 @@ export interface MarketplaceNftCardProps {
 const NftCard: React.FC<MarketplaceNftCardProps> = ({
   name,
   description,
-  image,
+  imageEl,
   available,
   lowestPrice,
   price,
@@ -67,12 +68,7 @@ const NftCard: React.FC<MarketplaceNftCardProps> = ({
               {name}
             </Title>
             <div className="card-image-wrapper">
-              <Image
-                src={image}
-                alt={name}
-                className="card-image"
-                showPreloader
-              />
+              <div className="card-image">{imageEl}</div>
             </div>
             <div className="mb-8">
               <Title size="large">{price} BNB</Title>
