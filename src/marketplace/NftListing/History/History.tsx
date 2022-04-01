@@ -2,6 +2,7 @@ import Divider from '../../../components/common/Divider'
 import DisplayDate from '../../../components/common/DisplayDate'
 import Typography from '../../../components/common/Typography'
 import { NftHistoryProps } from '../NftListing'
+import React from 'react'
 import styles from './styles'
 
 export interface NftListingHistoryProps {
@@ -10,10 +11,19 @@ export interface NftListingHistoryProps {
 
 const NftListingHistory: React.FC<NftListingHistoryProps> = ({ history }) => (
   <div css={styles}>
-    {history.map(({ createdAt, transactionHash, operator, action }, i) => (
+    {!history || history.length === 0 ? (
+      <>
+        <Typography className="mb-2">
+          No history to display
+        </Typography>
+        <Typography color="muted" caption>
+          Looks like this NFT has no purchase history.
+        </Typography>
+      </>
+    ) : history.map(({ createdAt, transactionHash, operator, action }, i) => (
       <div className="history-row" key={`history-${i}`}>
         <div>
-          <Typography size="small" className="mb-0.5 uppercase">
+          <Typography size="small" className="mb-0.5">
             {operator?.slice(0, 4)}...
             {operator?.slice(-4)}
           </Typography>

@@ -7,8 +7,16 @@ import DisplayCurrency from '../../components/common/DisplayCurrency'
 import RoundedTabs from '../../components/common/RoundedTabs'
 import NftInfo from './Info'
 import NftHistory from './History'
+import NftOffers from './Offers'
 import React from 'react'
 import styles from './styles'
+
+export interface NftOfferProps  {
+  uid: string
+  price: number
+  amount: number
+  owner: string
+}
 
 export interface NftHistoryProps {
   operator: string
@@ -25,12 +33,7 @@ export interface NftProps {
   description?: string
   marketplaceSupply: number
   totalSupply: number
-  offers?: {
-    uid: string
-    price: number
-    amount: number
-    owner: string
-  }[]
+  offers?: NftOfferProps[]
   history: NftHistoryProps[]
 }
 
@@ -60,20 +63,10 @@ const NftListing: React.FC<NftListingProps> = ({
   activeNavItem,
   royaltyFeeDetails
 }) => {
-  // const handleClickBuy = (e) => {
-  //   e.preventDefault()
-  //   e.stopPropagation()
-  //   if (loading) return
-  //   onClickPurchase(e)
-  // }
-
   const {
     name,
-    createdAt,
     image,
-    description,
     marketplaceSupply,
-    totalSupply,
     offers,
     history
   } = nft
@@ -100,11 +93,11 @@ const NftListing: React.FC<NftListingProps> = ({
             <Image src={image} alt={name} className="nft-image" />
           </div>
           <div className="nft-details">
-            <div className="mb-16">
-              <Title size="x-large" className="mb-10">
+            <div className="mb-10 md:mb-16">
+              <Title size="x-large" className="mb-6 md:mb-10">
                 {name}
               </Title>
-              <div className="mb-6">
+              <div className="mb-4 md:mb-6">
                 <Title size="large">
                   {offers?.[0] ? `${offers[0]?.price} BNB` : `No offers`}
                 </Title>
@@ -120,15 +113,25 @@ const NftListing: React.FC<NftListingProps> = ({
                           className: 'inline-block ml-1'
                         }}
                       />
-                      <span className="mx-2">{'•'}</span>
-                      <span>{marketplaceSupply} available</span>
+                      <span className="mx-2 hidden xs:inline-block md:hidden lg:inline-block">
+                        {'•'}
+                      </span>
+                      <span className="hidden xs:inline-block md:hidden lg:inline-block">
+                        {marketplaceSupply} available
+                      </span>
+                    </Typography>
+                    <Typography
+                      color="muted"
+                      className="xs:hidden md:block lg:hidden"
+                    >
+                      {marketplaceSupply} available
                     </Typography>
                   </>
                 )}
               </div>
               <Button
                 variant="contained"
-                size="x-large"
+                size="large"
                 disabled={
                   !checkNftFlags(nft, user?.address).canBuy || !user?.address
                 }
@@ -162,9 +165,8 @@ const NftListing: React.FC<NftListingProps> = ({
               {activeNavItem === 'info' && (
                 <NftInfo nft={nft} fee={royaltyFeeDetails.fee} />
               )}
-              {activeNavItem === 'history' && (
-                <NftHistory history={history} />
-              )}
+              {activeNavItem === 'history' && <NftHistory history={history} />}
+              {activeNavItem === 'offers' && <NftOffers offers={offers} />}
             </div>
           </div>
         </>

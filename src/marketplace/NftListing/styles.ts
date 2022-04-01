@@ -1,9 +1,9 @@
 import tw, { css } from 'twin.macro'
 
 const styles = css`
-  ${tw`grid`}
-  ${tw`grid-cols-2`}
-  ${tw`gap-x-8`}
+  ${tw`md:grid`}
+  ${tw`md:grid-cols-2`}
+  ${tw`md:gap-x-8`}
 
   .nft-image-wrapper {
     width: 100%;
@@ -33,7 +33,8 @@ const styles = css`
   }
 
   .nft-details {
-    ${tw`md:pl-16`}
+    ${tw`mt-4`}
+    ${tw`xl:pl-16`}
   }
 
   .nft-tabs {
@@ -48,11 +49,12 @@ const styles = css`
   }
 
   .nft-tab-content-row {
-    display: grid;
+    ${tw`grid`}
     ${tw`grid-cols-2`}
-    ${tw`gap-x-16`}
+    ${tw`gap-x-6`}
     ${tw`justify-start`}
     ${tw`mb-2`}
+    ${tw`md:gap-x-16`}
   }
 `
 

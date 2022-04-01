@@ -4,10 +4,15 @@ const styles = css`
   max-height: 16rem;
   overflow-y: scroll;
 
-  .history-row {
-    ${tw`flex`}
-    ${tw`justify-between`}
+  .offer-row {
     ${tw`mb-4`}
+    
+    p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      ${tw`w-full`}
+    }
   }
 `
 

@@ -2,11 +2,16 @@ import tw, { css } from 'twin.macro'
 
 const styles = css`
   .tabs {
+    ${tw`flex`}
+    ${tw`justify-between`}
+    ${tw`sm:justify-start`}
+    
     .tab-btn {
-      ${tw`px-8`}
+      ${tw`px-4`}
       ${tw`py-2`}
       ${tw`text-body-lg`}
-
+      ${tw`xxs:px-6`}
+      ${tw`lg:px-8`}
 
       &.active {
         ${tw`rounded-full`}
