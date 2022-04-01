@@ -16,7 +16,7 @@ const defaultProps = {
   nft: {
     name: 'Vernal',
     createdAt: 'Thu Mar 31 2022 02:28:21 GMT+0000',
-    image: '/nft/vernal.jpg',
+    image: <img src="/nft/vernal.jpg" />,
     description:
       'With unmatched skill, amazing powers, an unwavering dedication to a cause, and stalwart in their beliefs, they will attune to their mates to guide them in their quest.',
     marketplaceSupply: 13,

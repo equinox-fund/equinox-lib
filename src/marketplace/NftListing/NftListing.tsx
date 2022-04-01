@@ -5,6 +5,7 @@ import Button from '../../components/common/Button'
 import Image from '../../components/common/Image'
 import DisplayCurrency from '../../components/common/DisplayCurrency'
 import RoundedTabs from '../../components/common/RoundedTabs'
+import { ReactNode } from 'react'
 import NftInfo from './Info'
 import NftHistory from './History'
 import NftOffers from './Offers'
@@ -27,7 +28,7 @@ export interface NftHistoryProps {
 export interface NftProps {
   name: string
   createdAt: string
-  image: string
+  image: ReactNode
   price: number
   description?: string
   marketplaceSupply: number
@@ -89,7 +90,7 @@ const NftListing: React.FC<NftListingProps> = ({
       ) : (
         <>
           <div className="nft-image-wrapper">
-            <Image src={image} alt={name} className="nft-image" />
+            <div className="nft-image">{image}</div>
           </div>
           <div className="nft-details">
             <div className="mb-10 md:mb-16">
