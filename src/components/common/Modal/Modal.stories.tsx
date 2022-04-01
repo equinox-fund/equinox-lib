@@ -36,6 +36,12 @@ const defaultArgs = {
   )
 }
 
+export const ExtraLarge = Template.bind({})
+ExtraLarge.args = {
+  ...defaultArgs,
+  size: 'x-large'
+}
+
 export const Large = Template.bind({})
 Large.args = {
   ...defaultArgs,
@@ -53,6 +59,13 @@ export const Small = Template.bind({})
 Small.args = {
   ...defaultArgs,
   size: 'small'
+}
+
+export const Centered = Template.bind({})
+Centered.args = {
+  ...defaultArgs,
+  size: 'small',
+  centered: true
 }
 
 export const NoPadding = Template.bind({})
