@@ -114,7 +114,8 @@ module.exports = {
       modal: {
         xs: '30rem',
         md: '35rem',
-        lg: '45rem'
+        lg: '45rem',
+        xl: '72rem'
       },
       header: '90rem',
       newsletter: '48.5rem'

@@ -1,6 +1,6 @@
 import tw, { css, theme } from 'twin.macro'
 
-const styles = ({ padding, size }) => css`
+const styles = ({ padding, size, centered }) => css`
   position: fixed;
   left: 0;
   top: 0;
@@ -8,9 +8,11 @@ const styles = ({ padding, size }) => css`
   bottom: 0;
   ${tw`z-modal`}
   overflow-y: scroll;
-  padding: 2rem 1rem;
+  padding: 2rem;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
+
+  ${centered && tw`flex items-center`}
 
   &:focus {
     outline: 0;
@@ -27,8 +29,9 @@ const styles = ({ padding, size }) => css`
     ${tw`border-neutral-charcoal`}
     ${tw`bg-neutral-dark`}
 
-    ${size === 'medium' && tw`max-w-modal-md`}
+    ${size === 'x-large' && tw`max-w-modal-xl`}
     ${size === 'large' && tw`max-w-modal-lg`}
+    ${size === 'medium' && tw`max-w-modal-md`}
     ${size === 'small' && tw`max-w-modal-xs`}
 
     @media (max-width: calc(${theme`screens.md`} - 1px)) {
