@@ -9,7 +9,7 @@ export interface NftListingInfoProps {
 }
 
 const NftListingInfo: React.FC<NftListingInfoProps> = ({ nft: { createdAt, offers, totalSupply, description }, fee }) => (
-  <>
+  <div className="px-2">
     <div className="max-w-xs">
       <div className="nft-tab-content-row">
         <Typography color="muted">Created on</Typography>
@@ -35,6 +35,6 @@ const NftListingInfo: React.FC<NftListingInfoProps> = ({ nft: { createdAt, offer
     </div>
     <Divider horizontal className="my-6" />
     <Typography>{description}</Typography>
-  </>
+  </div>
 )
 export default NftListingInfo

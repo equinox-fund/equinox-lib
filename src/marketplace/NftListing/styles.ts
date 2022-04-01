@@ -1,6 +1,7 @@
 import tw, { css } from 'twin.macro'
 
 const styles = css`
+  ${tw`w-full`}
   ${tw`md:grid`}
   ${tw`md:grid-cols-2`}
   ${tw`md:gap-x-8`}
@@ -41,6 +42,7 @@ const styles = css`
     ${tw`rounded-full`}
     ${tw`border`}
     ${tw`border-neutral-ash`}
+    ${tw`border-solid`}
     ${tw`p-1`}
   }
 
