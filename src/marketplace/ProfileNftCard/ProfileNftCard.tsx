@@ -4,72 +4,46 @@ import Typography from '../../components/common/Typography'
 import TypographyWithLabel from '../../components/common/TypographyWithLabel'
 import Button from '../../components/common/Button'
 import Divider from '../../components/common/Divider'
-import Image from '../../components/common/Image'
 import Card from '../../components/common/Card'
 import SellIcon from '../../components/svg/Sell'
 import TransferIcon from '../../components/svg/Transfer'
-import DisplayCurrency from '../../components/common/DisplayCurrency'
 import { FiSettings } from 'react-icons/fi'
 import { ReactNode } from 'react'
 import styles from './styles'
 
 export interface ProfileNftCardProps {
   name: string
-  description?: string
   imageEl: ReactNode
-  available: number
-  lowestPrice?: number
-  price: number
   className?: string
   loading?: boolean
-  onClick?: (e: EventTarget) => void
-  onClickPurchase?: (e: EventTarget) => void
   amount: number
   sale: number
   showCancel?: boolean
   showControls?: boolean
   showSettings?: boolean
-  handleClickCancel: (e) => void
-  handleClickSell: (e) => void
-  handleClickTransfer: (e) => void
-  handleToggleSettings:(e) => void
+  onClick: (e) => void
+  onClickCancel: (e) => void
+  onClickSell: (e) => void
+  onClickTransfer: (e) => void
+  onToggleSettings: (e) => void
 }
 
 const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
   name,
-  description,
   imageEl,
-  available,
-  lowestPrice,
-  price,
   className,
   loading,
-  onClick,
-  onClickPurchase,
   amount,
   sale,
   showCancel = false,
   showControls = false,
   showSettings = false,
-  handleClickCancel,
-  handleClickSell,
-  handleClickTransfer,
-  handleToggleSettings
+  onClick,
+  onClickCancel,
+  onClickSell,
+  onClickTransfer,
+  onToggleSettings
 }) => {
-  const handleClick = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    if (loading) return
-    onClick(e)
-  }
-
-  const handleClickBuy = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    if (loading) return
-    onClickPurchase(e)
-  }
-
   const skeleton = (
     <>
       <Skeleton className="w-20 h-6 mb-6" />
@@ -80,7 +54,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
   )
 
   return (
-    <div css={styles} className={className} onClick={handleClick}>
+    <div css={styles} className={className} onClick={onClick}>
       <Card hoverAsLink>
         {loading ? (
           skeleton
@@ -89,10 +63,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
             <div className="card-row mb-6">
               <Title size="medium">{name}</Title>
               {showSettings && (
-                <div
-                  style={{ cursor: 'pointer' }}
-                  onClick={handleToggleSettings}
-                >
+                <div style={{ cursor: 'pointer' }} onClick={onToggleSettings}>
                   <FiSettings className="w-5 h-auto text-neutral-silver" />
                 </div>
               )}
@@ -115,7 +86,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
                       <Button
                         variant="outlined"
                         color="secondary"
-                        onClick={handleClickCancel}
+                        onClick={onClickCancel}
                       >
                         Cancel
                       </Button>
@@ -132,7 +103,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
                   <Button
                     variant="text"
                     color="secondary"
-                    onClick={handleClickSell}
+                    onClick={onClickSell}
                     className="card-cta"
                   >
                     <SellIcon className="w-6 mr-2" />
@@ -141,7 +112,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
                   <Button
                     variant="text"
                     color="secondary"
-                    onClick={handleClickTransfer}
+                    onClick={onClickTransfer}
                     className="card-cta"
                   >
                     <TransferIcon className="w-6 mr-2" />
