@@ -58,7 +58,7 @@ const CoreNftCard: React.FC<CoreNftCardProps> = ({
               </div>
             </div>
             <div className="mb-8">
-              <div className="md:hidden mb-8">
+              <div className="lg:hidden mb-8">
                 <div className="mb-4">
                   <Typography>IDO</Typography>
                   <Typography color="muted">
@@ -101,10 +101,10 @@ const CoreNftCard: React.FC<CoreNftCardProps> = ({
 
 const WithCard = ({ children }) => (
   <>
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Card>{children}</Card>
     </div>
-    <div className="hidden md:block">
+    <div className="hidden lg:block">
       {children}
     </div>
   </>
