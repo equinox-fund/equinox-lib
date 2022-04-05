@@ -48,6 +48,12 @@ Default.args = {
   ...defaultProps
 }
 
+export const Loading = Template.bind({})
+Loading.args = {
+  ...defaultProps,
+  loading: true
+}
+
 export const ConnectWallet = Template.bind({})
 ConnectWallet.args = {
   ...defaultProps,

@@ -75,11 +75,17 @@ const NftListing: React.FC<NftListingProps> = ({
 
   const skeleton = (
     <>
-      <Skeleton className="w-20 h-6 mb-6 mx-auto" />
-      <Skeleton className="card-image-wrapper" />
-      <Skeleton className="w-24 h-6 mb-2 mx-auto" />
-      <Skeleton className="w-48 h-6 mb-6 mx-auto" />
-      <Skeleton className="w-40 h-12 mx-auto" />
+      <Skeleton className="w-full h-0" style={{ paddingTop: '100%' }} />
+      <div className="nft-details">
+        <Skeleton className="w-48 h-12 mb-10" />
+        <Skeleton className="w-20 h-6 mb-2" />
+        <Skeleton className="w-24 h-6 mb-10" />
+        <Skeleton className="w-32 h-12 mb-10" />
+        <Skeleton className="w-full h-6 mb-2" />
+        <Skeleton className="w-full h-6 mb-2" />
+        <Skeleton className="w-full h-6 mb-2" />
+        <Skeleton className="w-32 h-6 mb-2" />
+      </div>
     </>
   )
 
