@@ -25,7 +25,7 @@ const RoundedTabs: React.FC<RoundedTabsProps> = ({
 
   useEffect(() => {
     handleResize()
-  }, [])
+  }, [tabs])
 
   const handleResize = () => {
     if (tabsEl.current.scrollWidth > tabsEl.current.clientWidth) {
@@ -54,7 +54,7 @@ const RoundedTabs: React.FC<RoundedTabsProps> = ({
     window?.addEventListener('resize', handleResize)
 
     return () => {
-      tabsEl.current.removeEventListener('scroll', handleScroll)
+      tabsEl.current?.removeEventListener('scroll', handleScroll)
       window?.removeEventListener('resize', handleResize)
     }
   }, [])
