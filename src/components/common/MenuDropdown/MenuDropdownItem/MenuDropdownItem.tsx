@@ -3,6 +3,7 @@ import Spinner from '../../Spinner'
 import styles from './styles'
 
 export interface MenuDropdownItemProps {
+  name: string
   label: string
   href?: string
   external?: boolean
@@ -12,19 +13,25 @@ export interface MenuDropdownItemProps {
   loading?: boolean
   disabled?: boolean
   closeDropdown?: () => void
+  onClick: (item: MenuDropdownItemProps) => void
+  active: boolean
 }
 
-const MenuDropdown: React.FC<MenuDropdownItemProps> = ({
-  label,
-  href,
-  external = false,
-  action,
-  icon,
-  iconLeft = false,
-  loading = false,
-  disabled = false,
-  closeDropdown
-}) => {
+const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
+  const {
+    name,
+    label,
+    href,
+    external = false,
+    action,
+    icon,
+    iconLeft = false,
+    loading = false,
+    disabled = false,
+    closeDropdown,
+    onClick,
+    active
+  } = props
   const [pending, setPending] = useState(false)
 
   useEffect(() => {
@@ -44,8 +51,9 @@ const MenuDropdown: React.FC<MenuDropdownItemProps> = ({
     } else {
       closeDropdown()
     }
+    onClick(props)
   }
-  
+
   const iconEl = icon ? <div className="icon">{icon}</div> : null
 
   const children = (
@@ -55,7 +63,7 @@ const MenuDropdown: React.FC<MenuDropdownItemProps> = ({
     </React.Fragment>
   )
 
-  const css = styles({ iconLeft, disabled, loading })
+  const css = styles({ iconLeft, disabled, loading, active })
 
   return href ? (
     <a
@@ -74,4 +82,4 @@ const MenuDropdown: React.FC<MenuDropdownItemProps> = ({
   )
 }
 
-export default MenuDropdown
+export default MenuDropdownItem

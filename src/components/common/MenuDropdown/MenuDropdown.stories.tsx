@@ -20,20 +20,47 @@ export const Default = Template.bind({})
 Default.args = {
   children: 'Default menu dropdown',
   items: [
-    { label: 'Polygon', href: '#' },
+    { name: 'polygon', label: 'Polygon', href: '#' },
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#'
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#'
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#'
     }
   ]
+}
+
+export const PreSelected = Template.bind({})
+PreSelected.args = {
+  children: 'Default menu dropdown',
+  items: [
+    { name: 'polygon', label: 'Polygon', href: '#' },
+    {
+      name: 'ethereum',
+      label: 'Ethereum',
+      href: '#'
+    },
+    {
+      name: 'solana',
+      label: 'Solana',
+      href: '#'
+    },
+    {
+      name: 'bsc',
+      label: 'Binance Smart Chain',
+      href: '#'
+    }
+  ],
+  defaultItemName: 'ethereum'
 }
 
 export const WithButtonStyles = Template.bind({})
@@ -46,16 +73,19 @@ WithButtonStyles.args = {
     iconPosition: 'left'
   },
   items: [
-    { label: 'Polygon', href: '#' },
+    { name: 'polygon', label: 'Polygon', href: '#' },
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#'
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#'
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#'
     }
@@ -67,16 +97,19 @@ Icons.args = {
   children: 'Menu dropdown with icons',
   items: [
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#',
       icon: <EthereumIcon className="w-4" />
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#',
       icon: <SolanaIcon className="w-4" />
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#',
       icon: <BinanceSmartChainIcon className="w-4" />
@@ -90,16 +123,19 @@ IconsLeft.args = {
   iconsLeft: true,
   items: [
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#',
       icon: <EthereumIcon className="w-4" />
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#',
       icon: <SolanaIcon className="w-4" />
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#',
       icon: <BinanceSmartChainIcon className="w-4" />
@@ -112,17 +148,20 @@ LoadingItem.args = {
   children: 'Menu dropdown with loading state',
   items: [
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#',
       icon: <EthereumIcon className="w-4" />,
       loading: true
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#',
       icon: <SolanaIcon className="w-4" />
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#',
       icon: <BinanceSmartChainIcon className="w-4" />
@@ -136,16 +175,19 @@ DisabledItem.args = {
   iconsLeft: true,
   items: [
     {
+      name: 'ethereum',
       label: 'Ethereum',
       href: '#',
       icon: <EthereumIcon className="w-4" />
     },
     {
+      name: 'solana',
       label: 'Solana',
       href: '#',
       icon: <SolanaIcon className="w-4" />
     },
     {
+      name: 'bsc',
       label: 'Binance Smart Chain',
       href: '#',
       icon: <BinanceSmartChainIcon className="w-4" />,

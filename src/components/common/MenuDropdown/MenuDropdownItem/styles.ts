@@ -1,9 +1,9 @@
 import tw, { css } from 'twin.macro'
 
-const styles = ({ iconLeft, disabled, loading }) => css`
+const styles = ({ iconLeft, disabled, loading, active }) => css`
   padding-top: 0.625rem;
   ${tw`w-full`}
-  ${tw`bg-neutral-ash`}
+  ${active ? tw`bg-neutral-charcoal` : tw`bg-neutral-ash`}
   ${tw`text-secondary`}
   ${tw`px-4`}
   ${tw`pb-2`}

@@ -1,7 +1,7 @@
 import tw, { css } from 'twin.macro'
 
 const styles = ({ open }) => css`
-  min-width: 14rem;
+  min-width: 18rem;
   position: relative;
 
   .dropdown-list {
@@ -37,6 +37,25 @@ const styles = ({ open }) => css`
   .dropdown-chevron {
     transform: rotate(90deg);
     ${tw`ml-6`}
+  }
+
+  .dropdown-icon {
+    ${tw`mr-3`}
+
+    svg {
+      path {
+        ${tw`transition-colors`};
+        ${tw`duration-base`};
+      }
+
+      path[stroke] {
+        ${tw`stroke-current`};
+      }
+
+      path[fill] {
+        ${tw`fill-current`};
+      }
+    }
   }
 `
 export default styles
