@@ -37,4 +37,4 @@ As soon as you are log in, you can now install the package
 We are using Chromatic to deploy our Storybook.
 
 Every push on main are automatically deployed to our chromatic visible
-[here](https://6225b1c0864a7a003a145ca4-kfodqfmyll.chromatic.com/).
+[here](https://main--6225b1c0864a7a003a145ca4.chromatic.com).
