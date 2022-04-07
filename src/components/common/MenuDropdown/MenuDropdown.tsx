@@ -59,7 +59,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
       >
         {activeItem ? (
           <span className="flex items-center">
-            {activeItem.icon && activeItem.iconLeft && (
+            {activeItem.icon && iconsLeft && (
               <div className="dropdown-icon">{activeItem.icon}</div>
             )}
             {activeItem.label}

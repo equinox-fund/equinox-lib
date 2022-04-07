@@ -1,7 +1,7 @@
 import tw, { css } from 'twin.macro'
 
 const styles = ({ open }) => css`
-  min-width: 18rem;
+  min-width: 11rem;
   position: relative;
 
   .dropdown-list {
