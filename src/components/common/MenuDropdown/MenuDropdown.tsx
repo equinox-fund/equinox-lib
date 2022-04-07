@@ -7,6 +7,7 @@ import styles from './styles'
 export interface MenuDropdownProps {
   children: ReactNode
   items: MenuDropdownItemProps[]
+  defaultItemName?: string
   iconsLeft?: boolean
   ButtonProps?: ButtonProps
 }
@@ -14,10 +15,16 @@ export interface MenuDropdownProps {
 const MenuDropdown: React.FC<MenuDropdownProps> = ({
   children,
   items,
+  defaultItemName = null,
   iconsLeft = false,
   ButtonProps = {}
 }) => {
+
+  const defaultItem = defaultItemName ? items.find(i => i.name === defaultItemName) : null
+
   const [open, setOpen] = useState(false)
+  const [activeItem, setActiveItem] =
+    useState<MenuDropdownItemProps | null>(defaultItem)
   const ref = useRef(null)
 
   const handleClickOutside = (e) => {
@@ -50,7 +57,16 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
         {...ButtonProps}
         onClick={() => setOpen(!open)}
       >
-        {children}
+        {activeItem ? (
+          <span className="flex items-center">
+            {activeItem.icon && iconsLeft && (
+              <div className="dropdown-icon">{activeItem.icon}</div>
+            )}
+            {activeItem.label}
+          </span>
+        ) : (
+          children
+        )}
         <ArrowRight className="dropdown-chevron" />
       </Button>
       <div className="dropdown-list" data-testid="dropdown-list">
@@ -61,6 +77,8 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
               {...item}
               iconLeft={iconsLeft}
               closeDropdown={() => setOpen(false)}
+              onClick={(item) => setActiveItem(item)}
+              active={activeItem ? activeItem.name === item.name : false}
             />
           ))}
         </div>

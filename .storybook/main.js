@@ -14,6 +14,7 @@ module.exports = {
       }
     }
   ],
+  staticDirs: ['../public'],
   framework: '@storybook/react',
   refs: {
     'chromatic-published-Storybook': {

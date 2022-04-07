@@ -1,66 +1,68 @@
 import tw, { css } from 'twin.macro'
 
-const styles = css`
+const styles = ({ scrolled, showOverflowGradient }) => css`
+  position: relative;
+  width: 100%;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1.5rem;
+    height: 100%;
+    ${tw`bg-gradient-to-r`}
+    z-index: 1;
+  }
+
+  &:before {
+    left: 0;
+    ${tw`from-neutral-dark`}
+    ${tw`to-transparent`}
+    opacity: ${scrolled ? 1 : 0};
+    transition: opacity 0.15s;
+  }
+
+  &:after {
+    right: 0;
+    ${tw`from-transparent`}
+    ${tw`to-neutral-dark`}
+    display: ${showOverflowGradient ? 'block' : 'none'};
+  }
+
+  .tabs-container {
+    overflow: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .tabs {
+    ${tw`flex`}
+    ${tw`justify-start`}
+
     .tab-btn {
-      ${tw`px-8`}
+      ${tw`px-4`}
       ${tw`py-2`}
       ${tw`text-body-lg`}
-
+      ${tw`xxs:px-6`}
+      ${tw`lg:px-8`}
 
       &.active {
         ${tw`rounded-full`}
         ${tw`bg-neutral-ash`}
       }
-    }
-  }
-`
 
-/**
- * 
-    .tabs-inner {
-      ${tw`p-1`}
-      ${tw`rounded-full`}
-      ${tw`xs:inline-block`}
-    }
-
-    .tabs-switch {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-
-      ${tw`duration-base`}
-
-      .indicator {
-        ${tw`mt-0.5`}
+      p {
+        white-space: nowrap;
       }
     }
   }
-
-  .tab-btn {
-    ${tw`px-4`}
-    ${tw`py-1`} 
-    position: relative;
-    display: flex;
-    width: 50%;
-    ${tw`items-center`}
-    ${tw`justify-center`}
-    ${tw`text-body-lg`}
-
-    &:active {
-      ${tw`rounded-full`}
-      ${tw`bg-neutral-ash`}
-    }
-  }
-
-  .tab-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    ${tw`transition-opacity`}
-    ${tw`duration-base`}
-  }
- */
+`
 
 export default styles

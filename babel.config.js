@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     '@emotion/babel-plugin',
     'babel-plugin-macros',
-    '@babel/plugin-syntax-flow'
+    '@babel/plugin-syntax-flow',
+    'react-require'
   ]
 }
