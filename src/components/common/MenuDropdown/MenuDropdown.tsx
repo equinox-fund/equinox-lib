@@ -10,7 +10,7 @@ export interface MenuDropdownProps {
   defaultItemName?: string
   iconsLeft?: boolean
   ButtonProps?: ButtonProps
-  className: string
+  className?: string
 }
 
 const MenuDropdown: React.FC<MenuDropdownProps> = ({
