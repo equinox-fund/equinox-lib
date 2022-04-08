@@ -19,6 +19,7 @@ Default.args = {
   amount: 5,
   sale: 1,
   showCancel: false,
+  showControls: false,
   loading: false
 }
 
@@ -29,11 +30,24 @@ Cancel.args = {
   amount: 5,
   sale: 1,
   showCancel: true,
+  showControls: false,
   loading: false
 }
 
 export const Controls = Template.bind({})
 Controls.args = {
+  name: 'Autumnal',
+  imageEl: <img src="/nft/autumnal.jpg" />,
+  amount: 5,
+  sale: 1,
+  showCancel: false,
+  showControls: true,
+  hideTransfer: true,
+  loading: false
+}
+
+export const Transfer = Template.bind({})
+Transfer.args = {
   name: 'Autumnal',
   imageEl: <img src="/nft/autumnal.jpg" />,
   amount: 5,

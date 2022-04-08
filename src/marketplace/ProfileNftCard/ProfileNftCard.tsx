@@ -20,6 +20,7 @@ export interface ProfileNftCardProps {
   sale: number
   showCancel?: boolean
   showControls?: boolean
+  hideTransfer?: boolean
   showSettings?: boolean
   onClick: (e) => void
   onClickCancel: (e) => void
@@ -36,7 +37,8 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
   amount,
   sale,
   showCancel = false,
-  showControls = false,
+  showControls = true,
+  hideTransfer = false,
   showSettings = false,
   onClick,
   onClickCancel,
@@ -101,23 +103,25 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
                 <Divider className="mt-6 mb-4" horizontal />
                 <div className="card-footer">
                   <Button
-                    variant="text"
-                    color="secondary"
-                    onClick={onClickSell}
-                    className="card-cta"
-                  >
-                    <SellIcon className="w-6 mr-2" />
-                    Sell
-                  </Button>
-                  <Button
-                    variant="text"
-                    color="secondary"
-                    onClick={onClickTransfer}
-                    className="card-cta"
-                  >
-                    <TransferIcon className="w-6 mr-2" />
-                    Transfer
-                  </Button>
+                      variant="text"
+                      color="secondary"
+                      onClick={onClickSell}
+                      className="card-cta"
+                    >
+                      <SellIcon className="w-6 mr-2" />
+                      Sell
+                    </Button>
+                  {!hideTransfer && (
+                    <Button
+                      variant="text"
+                      color="secondary"
+                      onClick={onClickTransfer}
+                      className="card-cta"
+                    >
+                      <TransferIcon className="w-6 mr-2" />
+                      Transfer
+                    </Button>
+                  )}
                 </div>
               </>
             )}
