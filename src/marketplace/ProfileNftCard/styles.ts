@@ -3,6 +3,15 @@ import tw, { css } from 'twin.macro'
 const styles = css`
   cursor: pointer;
 
+  .card-settings {
+    ${tw`p-2`}
+    ${tw`-mr-2`}
+    ${tw`text-neutral-silver`}
+    ${tw`hover:text-secondary`}
+    ${tw`transition-colors`}
+    ${tw`duration-base`}
+  }
+
   .card-image-wrapper {
     width: 100%;
     height: 0;
