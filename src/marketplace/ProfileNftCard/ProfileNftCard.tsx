@@ -65,11 +65,7 @@ const ProfileNftCard: React.FC<ProfileNftCardProps> = ({
             <div className="card-row mb-6">
               <Title size="medium">{name}</Title>
               {showSettings && (
-                <div
-                  className="card-settings"
-                  style={{ cursor: 'pointer' }}
-                  onClick={onToggleSettings}
-                >
+                <div className="card-settings" style={{ cursor: 'pointer' }} onClick={onToggleSettings}>
                   <FiSettings className="w-5 h-auto" />
                 </div>
               )}
