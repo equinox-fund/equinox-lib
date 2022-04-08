@@ -3,8 +3,8 @@ import tw, { css } from 'twin.macro'
 const styles = ({ iconLeft, disabled, loading, active }) => css`
   padding-top: 0.625rem;
   ${tw`w-full`}
-  ${active ? tw`bg-neutral-charcoal` : tw`bg-neutral-ash`}
-  ${tw`text-secondary`}
+  ${active ? tw`text-secondary` : tw`text-neutral-silver`}
+  ${tw`bg-neutral-ash`}
   ${tw`px-4`}
   ${tw`pb-2`}
   ${tw`cursor-pointer`}
@@ -13,9 +13,10 @@ const styles = ({ iconLeft, disabled, loading, active }) => css`
   ${iconLeft ? tw`flex-row-reverse justify-end` : tw`justify-between`} 
   ${tw`transition-colors`}
   ${tw`duration-base`}
-  ${tw`hover:bg-neutral-charcoal`}
+  ${!disabled && tw`hover:bg-neutral-charcoal`}
   ${disabled && tw`cursor-not-allowed`}
   ${(loading || disabled) && tw`text-opacity-40`}
+  ${tw`whitespace-nowrap`}
 
   &:first-of-type {
     padding-top: 0.75rem;

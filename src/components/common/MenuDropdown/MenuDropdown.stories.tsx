@@ -19,6 +19,7 @@ const Template: Story<MenuDropdownProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   children: 'Default menu dropdown',
+  className: 'w-72',
   items: [
     { name: 'polygon', label: 'Polygon', href: '#' },
     {
@@ -41,7 +42,8 @@ Default.args = {
 
 export const PreSelected = Template.bind({})
 PreSelected.args = {
-  children: 'Default menu dropdown',
+  children: 'Preselected menu dropdown',
+  className: 'w-72',
   items: [
     { name: 'polygon', label: 'Polygon', href: '#' },
     {
@@ -65,7 +67,8 @@ PreSelected.args = {
 
 export const WithButtonStyles = Template.bind({})
 WithButtonStyles.args = {
-  children: 'Menu dropdown with button styles',
+  children: 'With button styles',
+  className: 'w-72',
   ButtonProps: {
     color: 'primary',
     variant: 'contained',
@@ -94,7 +97,8 @@ WithButtonStyles.args = {
 
 export const Icons = Template.bind({})
 Icons.args = {
-  children: 'Menu dropdown with icons',
+  children: 'With icons',
+  className: 'w-72',
   items: [
     {
       name: 'ethereum',
@@ -119,7 +123,8 @@ Icons.args = {
 
 export const IconsLeft = Template.bind({})
 IconsLeft.args = {
-  children: 'Menu dropdown with icons left',
+  children: 'With icons left',
+  className: 'w-72',
   iconsLeft: true,
   items: [
     {
@@ -145,7 +150,8 @@ IconsLeft.args = {
 
 export const LoadingItem = Template.bind({})
 LoadingItem.args = {
-  children: 'Menu dropdown with loading state',
+  children: 'With loading state',
+  className: 'w-72',
   items: [
     {
       name: 'ethereum',
@@ -171,7 +177,8 @@ LoadingItem.args = {
 
 export const DisabledItem = Template.bind({})
 DisabledItem.args = {
-  children: 'Menu dropdown with disabled state',
+  children: 'With disabled state',
+  className: 'w-72',
   iconsLeft: true,
   items: [
     {

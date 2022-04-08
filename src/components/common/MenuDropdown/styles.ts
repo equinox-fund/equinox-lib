@@ -3,6 +3,7 @@ import tw, { css } from 'twin.macro'
 const styles = ({ open }) => css`
   min-width: 11rem;
   position: relative;
+  ${tw`select-none`}
 
   .dropdown-list {
     position: absolute;

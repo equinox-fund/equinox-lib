@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState, useEffect } from 'react'
+import React, { ReactNode, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import MenuDropdownItem, { MenuDropdownItemProps } from './MenuDropdownItem'
 import ArrowRight from '../../svg/ArrowRight'
 import Button, { ButtonProps } from '../Button'
@@ -10,6 +10,7 @@ export interface MenuDropdownProps {
   defaultItemName?: string
   iconsLeft?: boolean
   ButtonProps?: ButtonProps
+  className?: string
 }
 
 const MenuDropdown: React.FC<MenuDropdownProps> = ({
@@ -17,7 +18,8 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
   items,
   defaultItemName = null,
   iconsLeft = false,
-  ButtonProps = {}
+  ButtonProps = {},
+  className
 }) => {
 
   const defaultItem = defaultItemName ? items.find(i => i.name === defaultItemName) : null
@@ -46,7 +48,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
     <div
       ref={ref}
       css={styles({ open })}
-      className="relative select-none"
+      className={className}
       data-testid="menu-dropdown"
     >
       <Button
