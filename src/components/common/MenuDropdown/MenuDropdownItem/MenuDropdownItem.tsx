@@ -16,7 +16,7 @@ export interface MenuDropdownItemProps {
   closeDropdown?: () => void
   onClick: (item: MenuDropdownItemProps) => void
   active: boolean
-  divider: boolean
+  divider?: boolean
 }
 
 const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
@@ -82,9 +82,12 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
       </a>
     </>
   ) : (
-    <button css={css} onClick={handleItemClick}>
-      {children}
-    </button>
+    <>
+      {divider && <div css={dividerStyles} />}
+      <button css={css} onClick={handleItemClick}>
+        {children}
+      </button>
+    </>
   )
 }
 

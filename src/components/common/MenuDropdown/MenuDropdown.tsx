@@ -75,7 +75,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
           <ArrowRight className="dropdown-chevron" />
         </Button>
       ) : (
-        <button onClick={() => setOpen(!open)} type="button">
+        <button onClick={() => setOpen(!open)} type="button" className="block">
           {children}
         </button>
       )}
