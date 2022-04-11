@@ -1,6 +1,7 @@
 import React, { ReactNode, useState, useEffect, MouseEvent } from 'react'
 import Spinner from '../../Spinner'
-import styles from './styles'
+import Divider from '../../Divider'
+import styles, { dividerStyles } from './styles'
 
 export interface MenuDropdownItemProps {
   name: string
@@ -15,6 +16,7 @@ export interface MenuDropdownItemProps {
   closeDropdown?: () => void
   onClick: (item: MenuDropdownItemProps) => void
   active: boolean
+  divider: boolean
 }
 
 const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
@@ -30,7 +32,8 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
     disabled = false,
     closeDropdown,
     onClick,
-    active
+    active,
+    divider = false
   } = props
   const [pending, setPending] = useState(false)
 
@@ -66,15 +69,18 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
   const css = styles({ iconLeft, disabled, loading, active })
 
   return href ? (
-    <a
-      css={css}
-      href={href}
-      target={external ? '_blank' : '_self'}
-      rel="noreferrer noopener"
-      onClick={handleItemClick}
-    >
-      {children}
-    </a>
+    <>
+      {divider && <div css={dividerStyles} />}
+      <a
+        css={css}
+        href={href}
+        target={external ? '_blank' : '_self'}
+        rel="noreferrer noopener"
+        onClick={handleItemClick}
+      >
+        {children}
+      </a>
+    </>
   ) : (
     <button css={css} onClick={handleItemClick}>
       {children}

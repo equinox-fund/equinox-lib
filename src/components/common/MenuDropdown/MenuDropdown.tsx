@@ -5,10 +5,11 @@ import Button, { ButtonProps } from '../Button'
 import styles from './styles' 
 
 export interface MenuDropdownProps {
-  children: ReactNode
+  children: string | ReactNode
   items: MenuDropdownItemProps[]
   defaultItemName?: string
   iconsLeft?: boolean
+  dropdownAlign: 'left' | 'center' | 'right'
   ButtonProps?: ButtonProps
   className?: string
 }
@@ -18,6 +19,7 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
   items,
   defaultItemName = null,
   iconsLeft = false,
+  dropdownAlign = 'center',
   ButtonProps = {},
   className
 }) => {
@@ -47,30 +49,37 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
   return (
     <div
       ref={ref}
-      css={styles({ open })}
+      css={styles({ open, dropdownAlign })}
       className={className}
       data-testid="menu-dropdown"
     >
-      <Button
-        className="justify-start w-full"
-        variant="outlined"
-        color="secondary"
-        justify="between"
-        {...ButtonProps}
-        onClick={() => setOpen(!open)}
-      >
-        {activeItem ? (
-          <span className="flex items-center">
-            {activeItem.icon && iconsLeft && (
-              <div className="dropdown-icon">{activeItem.icon}</div>
-            )}
-            {activeItem.label}
-          </span>
-        ) : (
-          children
-        )}
-        <ArrowRight className="dropdown-chevron" />
-      </Button>
+      {typeof children === 'string' ? (
+        <Button
+          className="justify-start w-full"
+          variant="outlined"
+          color="secondary"
+          justify="between"
+          {...ButtonProps}
+          onClick={() => setOpen(!open)}
+        >
+          {activeItem ? (
+            <span className="flex items-center">
+              {activeItem.icon && iconsLeft && (
+                <div className="dropdown-icon">{activeItem.icon}</div>
+              )}
+              {activeItem.label}
+            </span>
+          ) : (
+            children
+          )}
+          <ArrowRight className="dropdown-chevron" />
+        </Button>
+      ) : (
+        <button onClick={() => setOpen(!open)} type="button">
+          {children}
+        </button>
+      )}
+
       <div className="dropdown-list" data-testid="dropdown-list">
         <div className="dropdown-list-items">
           {items.map((item, key) => (

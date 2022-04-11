@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import EthereumIcon from '../../svg/Ethereum'
 import SolanaIcon from '../../svg/Solana'
 import BinanceSmartChainIcon from '../../svg/BinanceSmartChain'
+import UserIcon from '../../svg/User'
 import MenuDropdown, { MenuDropdownProps } from './MenuDropdown'
 import { IoIosRocket } from 'react-icons/io'
 
@@ -199,6 +200,68 @@ DisabledItem.args = {
       href: '#',
       icon: <BinanceSmartChainIcon className="w-4" />,
       disabled: true
+    }
+  ]
+}
+
+
+export const CustomButton = Template.bind({})
+CustomButton.args = {
+  children: (
+    <div className="border-2 border-primary rounded-full">
+      <UserIcon className="w-12" />
+    </div>
+  ),
+  dropdownAlign: 'left',
+  items: [
+    {
+      name: 'dashboard',
+      label: 'Dashboard',
+      href: '#',
+    },
+    {
+      name: 'xp-history',
+      label: 'XP History',
+      href: '#'
+    },
+    {
+      name: 'profile',
+      label: 'My Profile',
+      href: '#',
+      disabled: true
+    }
+  ]
+}
+
+export const ItemGroups = Template.bind({})
+ItemGroups.args = {
+  children: (
+    <div className="border-2 border-primary hover:border-primary-light transition-colors duration-base rounded-full">
+      <UserIcon className="w-12" />
+    </div>
+  ),
+  dropdownAlign: 'left',
+  items: [
+    {
+      name: 'dashboard',
+      label: 'Dashboard',
+      href: '#'
+    },
+    {
+      name: 'xp-history',
+      label: 'XP History',
+      href: '#'
+    },
+    {
+      name: 'profile',
+      label: 'My Profile',
+      href: '#'
+    },
+    {
+      name: 'logout',
+      label: 'Logout',
+      href: '#',
+      divider: true
     }
   ]
 }
