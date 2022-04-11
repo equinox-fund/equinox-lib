@@ -29,7 +29,7 @@ const styles = ({ open, dropdownAlign }) => css`
       ${tw`bg-neutral-ash`}
       position: absolute;
       top: 1px;
-      ${dropdownAlign === 'right' ? tw`right-0 mr-5` : tw`left-0 ml-4`}
+      ${dropdownAlign === 'right' ? tw`right-0 mr-4` : tw`left-0 ml-4`}
       ${dropdownAlign === 'center' && tw`left-1/2 -ml-2`}
       ${tw`rounded-sm`}
       overflow: hidden;

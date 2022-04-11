@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState, useEffect, useLayoutEffect } from 'react'
+import React, { ReactNode, useRef, useState, useEffect } from 'react'
 import MenuDropdownItem, { MenuDropdownItemProps } from './MenuDropdownItem'
 import ArrowRight from '../../svg/ArrowRight'
 import Button, { ButtonProps } from '../Button'

@@ -265,3 +265,26 @@ ItemGroups.args = {
     }
   ]
 }
+
+export const CustomOption = Template.bind({})
+CustomOption.args = {
+  children: 'With custom option',
+  items: [
+    {
+      name: 'dashboard',
+      children: (
+        <div className="flex p-4">
+          <div className="w-6 h-6 bg-primary-light mr-2 cursor-pointer" />
+          <div className="w-6 h-6 bg-primary mr-2 cursor-pointer" />
+          <div className="w-6 h-6 bg-primary-dark mr-2 cursor-pointer" />
+        </div>
+      )
+    },
+    {
+      name: 'logout',
+      label: 'Logout',
+      href: '#',
+      divider: true
+    }
+  ]
+}

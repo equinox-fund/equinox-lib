@@ -1,11 +1,11 @@
 import React, { ReactNode, useState, useEffect, MouseEvent } from 'react'
 import Spinner from '../../Spinner'
-import Divider from '../../Divider'
 import styles, { dividerStyles } from './styles'
 
 export interface MenuDropdownItemProps {
   name: string
-  label: string
+  label?: string
+  children?: ReactNode
   href?: string
   external?: boolean
   action?: (e: MouseEvent<HTMLElement>) => void
@@ -15,7 +15,7 @@ export interface MenuDropdownItemProps {
   disabled?: boolean
   closeDropdown?: () => void
   onClick: (item: MenuDropdownItemProps) => void
-  active: boolean
+  active?: boolean
   divider?: boolean
 }
 
@@ -23,6 +23,7 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
   const {
     name,
     label,
+    children,
     href,
     external = false,
     action,
@@ -32,9 +33,10 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
     disabled = false,
     closeDropdown,
     onClick,
-    active,
+    active = false,
     divider = false
   } = props
+  
   const [pending, setPending] = useState(false)
 
   useEffect(() => {
@@ -59,33 +61,42 @@ const MenuDropdownItem: React.FC<MenuDropdownItemProps> = (props) => {
 
   const iconEl = icon ? <div className="icon">{icon}</div> : null
 
-  const children = (
+  const content = (
     <React.Fragment>
-      {label}
+      {label || children}
       {loading ? <Spinner className="spinner" /> : iconEl}
     </React.Fragment>
   )
 
   const css = styles({ iconLeft, disabled, loading, active })
 
-  return href ? (
-    <>
-      {divider && <div css={dividerStyles} />}
-      <a
-        css={css}
-        href={href}
-        target={external ? '_blank' : '_self'}
-        rel="noreferrer noopener"
-        onClick={handleItemClick}
-      >
-        {children}
-      </a>
-    </>
-  ) : (
+  if (href) {
+    return (
+      <>
+        {divider && <div css={dividerStyles} />}
+        <a
+          css={css}
+          href={href}
+          target={external ? '_blank' : '_self'}
+          rel="noreferrer noopener"
+          onClick={handleItemClick}
+        >
+          {content}
+        </a>
+      </>
+    )
+  }
+
+  if (children) {
+    return content
+  }
+  
+  
+  return (
     <>
       {divider && <div css={dividerStyles} />}
       <button css={css} onClick={handleItemClick}>
-        {children}
+        {content}
       </button>
     </>
   )
