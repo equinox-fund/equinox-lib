@@ -65,4 +65,17 @@ const styles = ({ iconLeft, disabled, loading, active }) => css`
   }
 `
 
+export const dividerStyles = css`
+  ${tw`px-4`}
+  ${tw`my-2`}
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    ${tw`bg-neutral-stone`}
+    display: block;
+  }
+`
+
 export default styles

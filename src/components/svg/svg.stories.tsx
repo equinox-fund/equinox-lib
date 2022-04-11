@@ -10,6 +10,7 @@ import Plus from './Plus'
 import Polygon from './Polygon'
 import Solana from './Solana'
 import Tether from './Tether'
+import User from './User'
 import WalletConnect from './WalletConnect'
 
 export default {
@@ -29,6 +30,7 @@ const Template: Story = (args) => (
     <Polygon className="w-6 mr-8" />
     <Solana className="w-6 mr-8" />
     <Tether className="w-6 mr-8" />
+    <User className="w-8 mr-8" />
     <WalletConnect className="w-6 mr-8" />
   </div>
 )
