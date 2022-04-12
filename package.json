@@ -1,6 +1,6 @@
 {
   "name": "@equinox-fund/equinox-lib",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "Equinox components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
