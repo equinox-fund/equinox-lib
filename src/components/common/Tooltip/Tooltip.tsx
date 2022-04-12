@@ -1,5 +1,5 @@
 import classmames from 'classnames'
-import React, { ReactNode, useRef, useState } from 'react'
+import { ReactNode, useRef, useState } from 'react'
 import Overlay from 'react-overlays/Overlay'
 import { Placement } from 'react-overlays/usePopper'
 import Typography from '../Typography'
