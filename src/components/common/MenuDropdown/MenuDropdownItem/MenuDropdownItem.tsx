@@ -3,7 +3,7 @@ import Spinner from '../../Spinner'
 import styles, { dividerStyles } from './styles'
 
 export interface MenuDropdownItemProps {
-  name: string
+  name?: string
   label?: string
   children?: ReactNode
   href?: string
@@ -14,7 +14,7 @@ export interface MenuDropdownItemProps {
   loading?: boolean
   disabled?: boolean
   closeDropdown?: () => void
-  onClick: (item: MenuDropdownItemProps) => void
+  onClick?: (item: MenuDropdownItemProps) => void
   active?: boolean
   divider?: boolean
 }
