@@ -21,8 +21,8 @@ const User: React.FC<UserProps> = ({ className }) => (
     >
       <rect fill="white" width="40" height="40" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M32.7279 7.27208C39.7573 14.3015 39.7573 25.6985 32.7279 32.7279C25.6984 39.7573 14.3015 39.7573 7.27208 32.7279C0.24264 25.6984 0.24264 14.3015 7.27208 7.27208C14.3015 0.24264 25.6985 0.24264 32.7279 7.27208Z"
       />
     </mask>
@@ -37,8 +37,8 @@ const User: React.FC<UserProps> = ({ className }) => (
     >
       <rect fill="white" x="14" y="9" width="13" height="13" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M23.682 12.318C25.4393 14.0754 25.4393 16.9246 23.682 18.682C21.9246 20.4393 19.0754 20.4393 17.318 18.682C15.5607 16.9246 15.5607 14.0754 17.318 12.318C19.0754 10.5607 21.9246 10.5607 23.682 12.318Z"
       />
     </mask>
@@ -50,9 +50,9 @@ const User: React.FC<UserProps> = ({ className }) => (
     <path
       d="M28 29.998C25.9884 26.9256 23.1512 25 20 25C16.8488 25 14.0116 26.9256 12 30"
       stroke="white"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
