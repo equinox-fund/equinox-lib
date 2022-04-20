@@ -26,7 +26,7 @@ const Select: FC<SelectProps> = ({
   ...props
 }) => {
   return (
-    <div css={styles}>
+    <div css={styles({ value })}>
       {label && (
         <label>
           <Typography className="mb-2" size="small">
@@ -38,7 +38,7 @@ const Select: FC<SelectProps> = ({
       <div className="relative">
         <select
           {...props}
-          defaultValue={value || ''}
+          value={value || ''}
           className={classnames({ ['error']: error }, className)}
         >
           {placeholder && (

@@ -1,6 +1,5 @@
 import tw, { css } from 'twin.macro'
 
-// @ts-ignore
 const styles = ({ size, borders }) => css`
   display: block;
   ${tw`mb-4`};
@@ -14,18 +13,16 @@ const styles = ({ size, borders }) => css`
     ${tw`text-secondary`};
     ${tw`text-body-sm`}
     background-color: transparent;
-
     ${tw`px-4`};
     ${tw`transition-colors`};
     ${tw`duration-base`};
     ${tw`outline-none`};
-
     ${tw`border`};
     ${tw`border-neutral-silver`};
-    ${tw`rounded-full`};
+    ${tw`rounded-lg`};
 
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     ${size === 'medium' && tw`text-body-md pt-2 pb-2`}
 
@@ -77,7 +74,7 @@ const styles = ({ size, borders }) => css`
 
   .helper {
     ${tw`mt-0.5`};
-    ${tw`ml-4`};
+    ${tw`ml-2`};
   }
 `
 
