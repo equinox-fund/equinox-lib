@@ -71,6 +71,9 @@ const styles = ({ value }) => css`
   }
 
   .helper {
+    position: absolute;
+    top: 100%;
+    left: 0;
     ${tw`mt-2`}
   }
 `

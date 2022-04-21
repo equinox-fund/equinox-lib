@@ -2,6 +2,7 @@ import tw, { css } from 'twin.macro'
 
 const styles = ({ size, borders }) => css`
   display: block;
+  position: relative;
   ${tw`mb-4`};
 
   .input-wrapper {
@@ -73,6 +74,9 @@ const styles = ({ size, borders }) => css`
   }
 
   .helper {
+    position: absolute;
+    top: 100%;
+    left: 0;
     ${tw`mt-2`}
   }
 `
