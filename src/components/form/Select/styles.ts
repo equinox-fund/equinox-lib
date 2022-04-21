@@ -3,13 +3,14 @@ import tw, { css } from 'twin.macro'
 const styles = ({ value }) => css`
   display: block;
   position: relative;
+  ${tw`mb-4`}
 
   select {
     width: 100%;
     ${tw`text-body-sm`}
     ${value ? tw`text-secondary` : tw`text-neutral-stone`}
     ${tw`font-sans`}
-    ${tw`border`}
+    ${tw`border-2`}
     ${tw`border-neutral-silver`}
     background-color: black;
     ${tw`pr-10`}
@@ -70,8 +71,7 @@ const styles = ({ value }) => css`
   }
 
   .helper {
-    ${tw`mt-0.5`}
-    ${tw`ml-2`}
+    ${tw`mt-2`}
   }
 `
 

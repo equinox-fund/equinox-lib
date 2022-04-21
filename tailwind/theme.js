@@ -92,7 +92,7 @@ module.exports = {
       system: {
         success: '#65EE9C',
         warning: '#e4e44f',
-        error: '#FB1266',
+        error: '#ED5088',
         info: '#69C0CA'
       }
     },

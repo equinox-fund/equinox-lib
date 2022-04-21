@@ -52,12 +52,12 @@ const TextField: FC<TextFieldProps> = ({
 
       <div className="helper">
         {error && (
-          <Typography color="error" size="medium" caption>
+          <Typography color="error" size="large" caption>
             {error}
           </Typography>
         )}
         {helper && !error && (
-          <Typography color="muted" size="medium" caption lineBreaks>
+          <Typography color="muted" size="large" caption lineBreaks>
             {helper}
           </Typography>
         )}

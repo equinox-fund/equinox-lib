@@ -17,7 +17,7 @@ const styles = ({ size, borders }) => css`
     ${tw`transition-colors`};
     ${tw`duration-base`};
     ${tw`outline-none`};
-    ${tw`border`};
+    ${tw`border-2`};
     ${tw`border-neutral-silver`};
     ${tw`rounded-lg`};
 
@@ -73,8 +73,7 @@ const styles = ({ size, borders }) => css`
   }
 
   .helper {
-    ${tw`mt-0.5`};
-    ${tw`ml-2`};
+    ${tw`mt-2`}
   }
 `
 

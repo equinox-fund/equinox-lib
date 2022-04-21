@@ -59,12 +59,12 @@ const Select: FC<SelectProps> = ({
       {(error || helper) && (
         <div className="helper">
           {error && (
-            <Typography color="error" size="medium" caption>
+            <Typography color="error" size="large" caption>
               {error}
             </Typography>
           )}
           {helper && !error && (
-            <Typography color="muted" size="medium" caption>
+            <Typography color="muted" size="large" caption>
               {helper}
             </Typography>
           )}

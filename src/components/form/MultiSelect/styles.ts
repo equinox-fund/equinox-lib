@@ -3,6 +3,7 @@ import tw, { css, theme } from 'twin.macro'
 const styles = css`
   display: block;
   position: relative;
+  ${tw`mb-4`}
 
   &:hover {
     select,
@@ -27,8 +28,7 @@ const styles = css`
   }
 
   .helper {
-    ${tw`mt-0.5`}
-    ${tw`ml-1`}
+    ${tw`mt-2`}
   }
 `
 
@@ -65,7 +65,7 @@ export const selectStyles = ({ error }) => ({
   control: (_provided, state) => css`
     display: flex;
     ${tw`justify-between`}
-    ${tw`border`}
+    ${tw`border-2`}
     ${state.isFocused ? tw`border-secondary` : tw`border-neutral-silver`}
     ${error && tw`border-system-error`}
     ${tw`rounded-lg`}
