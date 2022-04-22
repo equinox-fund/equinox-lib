@@ -6,7 +6,7 @@ const styles = () => css`
   }
 
   .label-error {
-    ${tw`mt-1`}
+    ${tw`mt-2`}
   }
 
   .options {

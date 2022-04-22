@@ -1,38 +1,41 @@
 import classnames from 'classnames'
-import React, { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import Typography from '../../common/Typography'
 import styles from './styles'
 
-export interface TextFieldProps {
+export interface DateFieldProps {
+  name: string
   label?: string
   helper?: string
-  type?: 'text' | 'password' | 'email'
   size?: 'small' | 'medium'
   error?: string
   placeholder?: string
-  icon?: ReactNode
   className?: string
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void
   [t: string]: any
   borders?: boolean
 }
 
-const TextField: FC<TextFieldProps> = ({
+const DateField: FC<DateFieldProps> = ({
+  name,
   label,
+  value,
   error,
   placeholder,
   icon,
   helper,
-  type = 'text',
   size = 'small',
   borders = true,
-  ...props
+  onChange
 }) => {
-  const inputAttrs = {
-    type,
-    placeholder,
-    className: classnames({ ['error']: error }),
-    ...props
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.target.blur()
+    }
+  }
+
+  const handleFocus = (e) => {
+    e.target.type = 'date'
   }
 
   return (
@@ -46,7 +49,16 @@ const TextField: FC<TextFieldProps> = ({
       )}
 
       <div className="input-wrapper">
-        <input {...inputAttrs} />
+        <input
+          name={name}
+          type={value ? 'date' : 'text'}
+          defaultValue={value}
+          onFocus={handleFocus}
+          className={classnames({ ['error']: error })}
+          placeholder={placeholder}
+          onKeyDown={handleKeyDown}
+          onChange={onChange}
+        />
         {icon && <span className="icon">{icon}</span>}
       </div>
 
@@ -66,4 +78,4 @@ const TextField: FC<TextFieldProps> = ({
   )
 }
 
-export default TextField
+export default DateField

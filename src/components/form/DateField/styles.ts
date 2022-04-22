@@ -2,8 +2,8 @@ import tw, { css } from 'twin.macro'
 
 const styles = ({ size, borders }) => css`
   display: block;
-  position: relative;
   ${tw`mb-4`};
+  position: relative;
 
   .input-wrapper {
     position: relative;

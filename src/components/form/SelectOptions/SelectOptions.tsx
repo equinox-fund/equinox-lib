@@ -46,7 +46,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = (props) => {
       )}
       <div className={classnames('options', optionsAlign)}>{elements}</div>
       {error && (
-        <Typography className="label-error" color="error" size="medium" caption>
+        <Typography className="label-error" color="error" size="large" caption>
           {error}
         </Typography>
       )}
