@@ -1,13 +1,18 @@
 export { default as Banner } from './Banner'
 export { default as Button } from './Button'
+export type { ButtonProps } from './Button'
 export { default as Card } from './Card'
 export { default as ChainIcon } from './ChainIcon'
 export { default as DisplayCurrency } from './DisplayCurrency'
-export { default as DisplayDate } from './DisplayDate'
+export {
+  default as DisplayDate,
+  DATE_FORMAT,
+  DATE_TIME_FORMAT
+} from './DisplayDate'
 export { default as Divider } from './Divider'
 export { default as ExpandableContent } from './ExpandableContent'
 export { default as Heading } from './Heading'
-export { default as Icon } from './Icon'
+export { default as Icon, IconProps, TIconColor } from './Icon'
 export { default as IconButton } from './IconButton'
 export { default as Image } from './Image'
 export { default as Markup } from './Markup'
@@ -22,5 +27,5 @@ export { default as Skeleton } from './Skeleton'
 export { default as Spinner } from './Spinner'
 export { default as Title } from './Title'
 export { default as Tooltip } from './Tooltip'
-export { default as Typography } from './Typography'
+export { default as Typography, TypographyStyles, TypographyProps } from './Typography'
 export { default as TypographyWithLabel } from './TypographyWithLabel'
