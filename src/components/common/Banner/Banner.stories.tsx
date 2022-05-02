@@ -25,3 +25,10 @@ Muted.args = {
   cta: <Button color="secondary">Connect wallet</Button>,
   color: 'muted'
 }
+
+export const LeftAligned = Template.bind({})
+LeftAligned.args = {
+  text: 'Please connect your wallet.',
+  cta: <Button color="secondary">Connect wallet</Button>,
+  align: 'left'
+}

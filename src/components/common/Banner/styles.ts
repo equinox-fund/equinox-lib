@@ -1,6 +1,6 @@
 import tw, { css } from 'twin.macro'
 
-const styles = ({ color = 'highlight' }) => css`
+const styles = ({ color = 'highlight', align }) => css`
   ${color === 'highlight' && tw`bg-primary`}
   ${color === 'muted' && tw`bg-neutral-charcoal`}
 
@@ -15,7 +15,7 @@ const styles = ({ color = 'highlight' }) => css`
     ${tw`xs:text-left`}
     ${tw`xs:flex`}
     ${tw`xs:flex-nowrap`}
-    ${tw`xs:justify-center`}
+    ${align === 'center' ? tw`xs:justify-center` : tw`xs:justify-start`}
     ${tw`xs:items-center`}
   }
 
