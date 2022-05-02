@@ -4,7 +4,7 @@ const styles = ({ size = 'medium' }) => css`
   ${tw`mx-2`}
   ${tw`rounded-full`}
   ${tw`border`}
-  ${tw`border-secondary`}
+  ${tw`border-current`}
   border-top-color: transparent;
 
   ${tw`animate-spin`}
