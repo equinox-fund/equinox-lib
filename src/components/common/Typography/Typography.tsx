@@ -1,6 +1,6 @@
 import styles from './styles'
 import classnames from 'classnames'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import {
   TypographyColor,
   TypographySize,
@@ -12,6 +12,7 @@ export interface TypographyProps {
   weight?: TypographyFontWeight
   className?: string
   caption?: boolean
+  children?: ReactNode
   color?: TypographyColor
   uppercase?: boolean
   tag?: 'p' | 'span'

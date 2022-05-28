@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styles from './styles'
-import {
-  TitleColor,
-  TitleSize,
-  TitleFontWeight
-} from './Title.types'
+import { TitleColor, TitleSize, TitleFontWeight } from './Title.types'
 
 export interface TitleProps {
   size?: TitleSize
   weight?: TitleFontWeight
   color?: TitleColor
+  children?: ReactNode
   className?: string
   uppercase?: boolean
   link?: boolean
