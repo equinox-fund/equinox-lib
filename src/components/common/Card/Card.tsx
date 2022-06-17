@@ -1,9 +1,11 @@
+import { ReactNode } from 'react'
 import Spinner from '../Spinner'
 import styles from './styles'
 
 export interface CardProps {
   className?: string
   loading?: boolean
+  children: ReactNode
   padding?: boolean
   hoverAsLink?: boolean
 }

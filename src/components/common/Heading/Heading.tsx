@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styles from './styles'
-import {
-  HeadingColor,
-  HeadingSize,
-  HeadingFontWeight
-} from './Heading.types'
+import { HeadingColor, HeadingSize, HeadingFontWeight } from './Heading.types'
 
 export interface HeadingProps {
   size?: HeadingSize
   weight?: HeadingFontWeight
   color?: HeadingColor
+  children?: ReactNode
   className?: string
   uppercase?: boolean
   link?: boolean
